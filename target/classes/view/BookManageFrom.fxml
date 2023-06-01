@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookManageFromController">
+   <children>
+      <JFXTextField fx:id="txtBookID" labelFloat="true" layoutX="27.0" layoutY="61.0" prefHeight="45.0" prefWidth="235.0" promptText="BookId">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookName" labelFloat="true" layoutX="27.0" layoutY="152.0" prefHeight="45.0" prefWidth="235.0" promptText="Book Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookQty" labelFloat="true" layoutX="27.0" layoutY="240.0" prefHeight="45.0" prefWidth="235.0" promptText="Book Qty">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="785.0" layoutY="320.0" onAction="#OnAdd" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: lightblue;" text="Add">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbPulisherID" layoutX="304.0" layoutY="240.0" onAction="#OnSelectPulisherID" prefHeight="45.0" prefWidth="119.0" promptText="Publisher ID" />
+      <JFXComboBox fx:id="cmbSupplierId" layoutX="304.0" layoutY="61.0" onAction="#OnSelectSuplierId" prefHeight="45.0" prefWidth="119.0" promptText="Supplier ID" />
+      <JFXComboBox fx:id="cmbAutorId" layoutX="304.0" layoutY="152.0" onAction="#onSelectAutorId" prefHeight="45.0" prefWidth="119.0" promptText="Autor  ID" />
+      <JFXButton buttonType="RAISED" layoutX="784.0" layoutY="432.0" onAction="#OnUpdate" prefHeight="54.0" prefWidth="191.0" style="-fx-background-color: lightgreen;" text="Update">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="784.0" layoutY="546.0" onAction="#OnDelete" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: lightpink;" text="Delete">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="798.0" layoutY="125.0" onAction="#OnSearch" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #32ff7e;" text="Search">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtSearchBookID" labelFloat="true" layoutX="658.0" layoutY="39.0" prefHeight="45.0" prefWidth="222.0" promptText="BookId">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <TableView fx:id="tblBooks" layoutX="26.0" layoutY="302.0" prefHeight="314.0" prefWidth="689.0" stylesheets="@../StyleSheet/tableview.css">
+        <columns>
+          <TableColumn fx:id="colBookID" prefWidth="92.33332824707031" text="BookID" />
+          <TableColumn fx:id="colName" prefWidth="139.66667938232422" text="Name" />
+            <TableColumn fx:id="colAutor" prefWidth="113.33334350585938" text="AutorID" />
+            <TableColumn fx:id="colPublisherID" prefWidth="116.66665649414062" text="PublisherID" />
+            <TableColumn fx:id="colSupplierID" prefWidth="114.0" text="SupplierID" />
+            <TableColumn fx:id="colWty" prefWidth="110.0" text="qty" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblSupplierName" layoutX="527.0" layoutY="78.0" prefHeight="34.0" prefWidth="112.0" text="Label">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Text layoutX="449.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name   :" wrappingWidth="67.83334607630968">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblAutorName" layoutX="521.0" layoutY="161.0" prefHeight="34.0" prefWidth="112.0" text="Label">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPublisherName" layoutX="524.0" layoutY="250.0" prefHeight="34.0" prefWidth="112.0" text="Label">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Text layoutX="446.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name   :" wrappingWidth="67.83334607630968">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="448.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name   :" wrappingWidth="67.83334607630968">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="294.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier ID" wrappingWidth="74.33755493164062" />
+      <Text layoutX="293.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor ID" wrappingWidth="74.33755493164062" />
+      <Text layoutX="287.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher ID" wrappingWidth="81.6708984375" />
+   </children>
+</AnchorPane>

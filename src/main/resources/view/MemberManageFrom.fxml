@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.MemberManageFromController">
+    <children>
+        <JFXButton buttonType="RAISED" layoutX="831.0" layoutY="295.0" onAction="#OnAdd" prefHeight="50.0" prefWidth="178.0" style="-fx-background-color: lightblue;" text="Add">
+            <font>
+                <Font size="23.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXTextField labelFloat="true" layoutX="21.0" layoutY="38.0" prefHeight="52.0" prefWidth="532.0" promptText="MemberId">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberName" labelFloat="true" layoutX="16.0" layoutY="118.0" onKeyReleased="#memberNameOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Name">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberAddress" labelFloat="true" layoutX="20.0" layoutY="204.0" onKeyTyped="#memberAddressOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Address">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberContact" labelFloat="true" layoutX="16.0" layoutY="478.0" onKeyReleased="#MemberContactOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Contact">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberAge" labelFloat="true" layoutX="16.0" layoutY="387.0" prefHeight="52.0" prefWidth="532.0" promptText="Age">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberEmail" labelFloat="true" layoutX="21.0" layoutY="554.0" onKeyReleased="#memberEmailOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Email">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtMemberGender" labelFloat="true" layoutX="16.0" layoutY="294.0" prefHeight="52.0" prefWidth="532.0" promptText="Gender">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <Label fx:id="lbl1" layoutX="570.0" layoutY="64.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl2" layoutX="570.0" layoutY="137.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl3" layoutX="570.0" layoutY="212.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl6" layoutX="570.0" layoutY="486.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl5" layoutX="570.0" layoutY="395.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl4" layoutX="570.0" layoutY="302.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl7" layoutX="570.0" layoutY="570.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <JFXTextField fx:id="txtMemberIdSearch" labelFloat="true" layoutX="779.0" layoutY="56.0" prefHeight="52.0" prefWidth="231.0" promptText="EnterMemberId">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <JFXButton buttonType="RAISED" layoutX="831.0" layoutY="137.0" onAction="#OnSearch" prefHeight="36.0" prefWidth="151.0" style="-fx-background-color: #32ff7e;" text="Search">
+            <font>
+                <Font size="23.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="831.0" layoutY="381.0" onAction="#OnUpdate" prefHeight="50.0" prefWidth="178.0" style="-fx-background-color: lightgreen;" text="Update">
+            <font>
+                <Font size="23.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="831.0" layoutY="470.0" onAction="#OnDelete" prefHeight="52.0" prefWidth="178.0" style="-fx-background-color: lightpink;" text="Delete">
+            <font>
+                <Font size="23.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="831.0" layoutY="554.0" onAction="#GoView" prefHeight="52.0" prefWidth="178.0" style="-fx-background-color: #74b9ff;" text="View">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.ReportServiesFromController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="52.0" onAction="#btnMemberReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="641.0" fitWidth="464.0" layoutX="677.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/ancient-books-library-table.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="155.0" layoutX="41.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="158.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member" wrappingWidth="126.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="194.0" onAction="#btnBookReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="117.0" fitWidth="117.0" layoutX="48.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="165.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="175.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="174.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report" wrappingWidth="126.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="334.0" onAction="#btnIssuseReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="483.0" onAction="#btnReturnReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="52.0" onAction="#btnPublisherReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="194.0" onAction="#btnSupplierReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="334.0" onAction="#btnAutorReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="483.0" onAction="#btnFinresReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="331.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="117.0" fitWidth="117.0" layoutX="43.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="109.0" fitWidth="148.0" layoutX="366.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="127.0" layoutX="43.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="130.0" fitWidth="117.0" layoutX="41.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="117.0" layoutX="363.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="127.0" layoutX="362.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="117.0" layoutX="366.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/report.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="165.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issuse">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="175.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="175.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="502.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="502.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="502.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="512.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="151.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="475.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" wrappingWidth="126.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="468.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier" wrappingWidth="126.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="475.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" wrappingWidth="126.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="469.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fines Money" wrappingWidth="207.6708984375">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

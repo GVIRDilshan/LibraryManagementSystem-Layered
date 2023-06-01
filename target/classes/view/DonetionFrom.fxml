@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.DonetionFromController">
+   <children>
+      <JFXTextField fx:id="txtDonetionID" labelFloat="true" layoutX="42.0" layoutY="59.0" prefHeight="60.0" prefWidth="254.0" promptText="Donetion ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAmmount" labelFloat="true" layoutX="355.0" layoutY="167.0" prefHeight="60.0" prefWidth="254.0" promptText="Ammount">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextArea fx:id="txtReview" layoutX="42.0" layoutY="268.0" prefHeight="231.0" prefWidth="763.0" promptText="Review">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton layoutX="898.0" layoutY="544.0" onAction="#btnOnAdd" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: lightgreen;" text="Add">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtDonetBy" labelFloat="true" layoutX="355.0" layoutY="59.0" prefHeight="60.0" prefWidth="254.0" promptText="Donet By">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cmbExibitionID" layoutX="42.0" layoutY="182.0" onAction="#onSelectCmbExibitonID" prefHeight="46.0" prefWidth="266.0" />
+      <Text layoutX="42.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exibition ID">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

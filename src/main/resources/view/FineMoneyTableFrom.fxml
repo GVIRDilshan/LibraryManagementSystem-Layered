@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.FineMoneyTableFromController">
+    <children>
+        <JFXButton buttonType="RAISED" layoutX="98.0" layoutY="155.0" onAction="#OnSearch" prefHeight="63.0" prefWidth="162.0" style="-fx-background-color: green;" text="Search" textFill="WHITE">
+            <font>
+                <Font size="21.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXTextField fx:id="txtSeachId" layoutX="24.0" layoutY="28.0" prefHeight="63.0" prefWidth="169.0" promptText="Search Issuse ID">
+            <font>
+                <Font size="20.0" />
+            </font></JFXTextField>
+        <Text layoutX="381.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issuse Date  :" wrappingWidth="153.6708984375">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Text layoutX="381.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due Date     :" wrappingWidth="153.6708970181644">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Label fx:id="lblIssuseDate" layoutX="540.0" layoutY="66.0" prefHeight="46.0" prefWidth="225.0" text=".">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblDueDate" layoutX="540.0" layoutY="132.0" prefHeight="46.0" prefWidth="225.0" text=".">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtEnterIssuseDate" layoutX="71.0" layoutY="289.0" prefHeight="63.0" prefWidth="216.0" promptText="Enter Issuse Date">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtEnterDueDate" layoutX="381.0" layoutY="289.0" prefHeight="63.0" prefWidth="216.0" promptText="Enter Due Date">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <Label layoutX="319.0" layoutY="281.0" text="-">
+            <font>
+                <Font size="54.0" />
+            </font>
+        </Label>
+        <Label layoutX="622.0" layoutY="281.0" text="=">
+            <font>
+                <Font size="54.0" />
+            </font>
+        </Label>
+        <Text layoutX="673.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Diff is  :" wrappingWidth="153.6708984375">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Label fx:id="lblDateDiff" layoutX="829.0" layoutY="281.0" prefHeight="63.0" prefWidth="37.0" text=".">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="866.0" layoutY="290.0" prefHeight="46.0" prefWidth="77.0" text="Days">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Text layoutX="32.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Diff is  :" wrappingWidth="153.6708984375">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Label fx:id="lblDateDifff2" layoutX="193.0" layoutY="420.0" prefHeight="63.0" prefWidth="22.0" text=".">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="249.0" layoutY="420.0" text="*">
+            <font>
+                <Font size="54.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtEnterFineValue" layoutX="319.0" layoutY="413.0" prefHeight="63.0" prefWidth="169.0" promptText="Enter Fine vales">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </JFXTextField>
+        <Label layoutX="540.0" layoutY="412.0" text="=">
+            <font>
+                <Font size="54.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblFinalAnswer" layoutX="626.0" layoutY="429.0" prefHeight="46.0" prefWidth="37.0" text=".">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="290.0" onAction="#OnOk1" prefHeight="63.0" prefWidth="84.0" style="-fx-background-color: green;" text="Ok" textFill="WHITE">
+            <font>
+                <Font size="21.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="418.0" onAction="#OnOK2" prefHeight="63.0" prefWidth="84.0" style="-fx-background-color: green;" text="Ok" textFill="WHITE">
+            <font>
+                <Font size="21.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+      <Label fx:id="lblFinalAnswer1" layoutX="694.0" layoutY="429.0" prefHeight="46.0" prefWidth="37.0" text="/=">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFinalAnswer11" layoutX="594.0" layoutY="429.0" prefHeight="46.0" prefWidth="37.0" text="RS.">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFinalAnswer2" layoutX="663.0" layoutY="429.0" prefHeight="46.0" prefWidth="37.0" text=".00">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

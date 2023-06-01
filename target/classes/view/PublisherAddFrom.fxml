@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.PublisherAddFromController">
+    <children>
+        <JFXTextField fx:id="txtPublisherID" labelFloat="true" layoutX="163.0" layoutY="204.0" prefHeight="53.0" prefWidth="555.0" promptText="PunlisherID">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtPublisherName" labelFloat="true" layoutX="163.0" layoutY="294.0" onKeyReleased="#PublisherNameOnAction" prefHeight="53.0" prefWidth="555.0" promptText="Publisher Name">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtBookID" labelFloat="true" layoutX="163.0" layoutY="388.0" prefHeight="53.0" prefWidth="555.0" promptText="BookID">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <JFXButton layoutX="873.0" layoutY="559.0" onAction="#OnDelete" prefHeight="53.0" prefWidth="190.0" style="-fx-background-color: lightpink;" text="Delete">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </JFXButton>
+        <JFXTextField fx:id="txtEnterPbID" labelFloat="true" layoutX="743.0" layoutY="75.0" prefHeight="53.0" prefWidth="190.0" promptText="EnterPublisherID">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </JFXTextField>
+        <JFXButton layoutX="913.0" layoutY="169.0" onAction="#OnSearch" prefHeight="53.0" prefWidth="111.0" style="-fx-background-color: #636e72;" text="Search">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </JFXButton>
+        <JFXButton layoutX="873.0" layoutY="485.0" onAction="#OnUpdate" prefHeight="53.0" prefWidth="190.0" style="-fx-background-color: lightgreen;" text="Update">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </JFXButton>
+        <JFXButton layoutX="873.0" layoutY="406.0" onAction="#OnAdd" prefHeight="53.0" prefWidth="190.0" style="-fx-background-color: lightblue;" text="Add">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </JFXButton>
+      <Label fx:id="lbl1" layoutX="729.0" layoutY="298.0" prefHeight="45.0" prefWidth="47.0" />
+    </children>
+
+</AnchorPane>

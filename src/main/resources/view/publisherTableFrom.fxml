@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.PublisherTableFromController">
+   <children>
+      <TableView fx:id="tblPublisher" layoutX="28.0" layoutY="33.0" prefHeight="587.0" prefWidth="1035.0" stylesheets="@../StyleSheet/tableview.css">
+        <columns>
+          <TableColumn fx:id="colPublisherID" prefWidth="234.0" text="PublisherID" />
+          <TableColumn fx:id="colName" prefWidth="223.0" text="Publisher Name" />
+            <TableColumn fx:id="colBookID" prefWidth="353.0" text="Publishe_Book_ID" />
+            <TableColumn prefWidth="224.0" text="Publish_Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

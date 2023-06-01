@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.EmailFromController">
+   <children>
+      <JFXTextArea fx:id="txtWriteEmail" layoutX="155.0" layoutY="215.0" prefHeight="313.0" prefWidth="892.0" style="-fx-background-color: fff;">
+         <font>
+            <Font size="20.0" />
+         </font></JFXTextArea>
+      <JFXComboBox fx:id="cmdSelectEmail" layoutX="155.0" layoutY="129.0" onAction="#OnSelectEmail" prefHeight="44.0" prefWidth="892.0" style="-fx-background-color: ffff;" />
+      <JFXButton layoutX="432.0" layoutY="547.0" onAction="#OnSend" prefHeight="71.0" prefWidth="213.0" style="-fx-background-color: #a5b1c2; -fx-background-radius: 35;" text="Send">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="24.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To         :" wrappingWidth="143.00002098083496">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text layoutX="11.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject   :" wrappingWidth="143.00002098083496">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From     :" wrappingWidth="143.00002098083496">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text layoutX="167.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="librarys586@gmail.com" wrappingWidth="556.6708984375">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
