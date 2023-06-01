@@ -12,8 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Return;
-import lk.ijse.library.model.IssuseModelDTO;
-import lk.ijse.library.model.ReturnModelDTO;
+import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.model.ReturnModel;
 
 
 import java.net.URL;
@@ -81,7 +81,7 @@ public class ReturnFromController implements Initializable {
 
         String IssueseID = txtIssuseID.getText();
 
-        Issuse issuse  = IssuseModelDTO.IssuseSearch(IssueseID);
+        Issuse issuse  = IssuseModel.IssuseSearch(IssueseID);
 
         lblIssueID.setText(issuse.getIssusId());
         lblBookID.setText(issuse.getBookId());
@@ -115,7 +115,7 @@ public class ReturnFromController implements Initializable {
         return1.setBookId(BookId);
         return1.setIssuseDate(IssuseDate);
 
-        boolean b1 = ReturnModelDTO.ReturnSet(return1,BookQty,BookId,IssuseId);
+        boolean b1 = ReturnModel.ReturnSet(return1,BookQty,BookId,IssuseId);
         System.out.println(return1.getIssuseId()+" "+return1.getReturnId()+" "+return1.getBookId()+" " +
                 " "+return1.getReturnDate()+" "+return1.getIssuseDate());
 
@@ -133,7 +133,7 @@ public class ReturnFromController implements Initializable {
 
         ArrayList<Return> returns;
         try {
-            returns = ReturnModelDTO.loadAllReturnas();
+            returns = ReturnModel.loadAllReturnas();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -11,7 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Publisher;
-import lk.ijse.library.model.PublisherModelDTO;
+import lk.ijse.library.model.PublisherModel;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
@@ -57,14 +57,14 @@ public class PublisherAddFromController {
 
         String PublisherID = txtEnterPbID.getText();
 
-        boolean P2 = PublisherModelDTO.deleteFrom(PublisherID);
+        boolean P2 = PublisherModel.deleteFrom(PublisherID);
 
     }
 
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String PublisherSearchID = txtEnterPbID.getText();
 
-        Publisher p1 = PublisherModelDTO.searchFrom(PublisherSearchID);
+        Publisher p1 = PublisherModel.searchFrom(PublisherSearchID);
 
         Publisher p2 = new Publisher();
 
@@ -84,7 +84,7 @@ public class PublisherAddFromController {
         publisher.setPublisherName(PublisherName);
         publisher.setBookID(BookID);
 
-         boolean b1 = PublisherModelDTO.updatePublisher(publisher);
+         boolean b1 = PublisherModel.updatePublisher(publisher);
 
     }
 
@@ -100,7 +100,7 @@ public class PublisherAddFromController {
         publisher.setPublishDate(String.valueOf(LocalDate.now()));
         publisher.setBookID(BookID);
 
-        boolean P1 = PublisherModelDTO.PublisherAdd(publisher);
+        boolean P1 = PublisherModel.PublisherAdd(publisher);
 
     }
 

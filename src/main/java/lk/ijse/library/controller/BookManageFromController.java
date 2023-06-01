@@ -98,7 +98,7 @@ public class BookManageFromController implements Initializable {
         book.setSupplier(String.valueOf(cmbSupplierId.getValue()));
         book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
-        boolean b1 = BookModelDTO.BookAdd(book);
+        boolean b1 = BookModel.BookAdd(book);
         tableLoad();
     }
 
@@ -117,20 +117,20 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     void OnSelectPulisherID(ActionEvent event) throws SQLException {
-        Publisher publisher = PublisherModelDTO.searchFrom((String) cmbPulisherID.getValue());
+        Publisher publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
         lblPublisherName.setText(publisher.getPublisherName());
 
     }
 
     @FXML
     void OnSelectSuplierId(ActionEvent event) throws SQLException {
-        Supplier supplier = SupplierModelDTO.searchFrom((String) cmbSupplierId.getValue());
+        Supplier supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
         lblSupplierName.setText(supplier.getSupplierName());
     }
 
     @FXML
     void onSelectAutorId(ActionEvent event) throws SQLException {
-        Autor autor = AutorModelDTO.searchFrom((String) cmbAutorId.getValue());
+        Autor autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
         lblAutorName.setText(autor.getAutorName());
     }
 
@@ -146,16 +146,17 @@ public class BookManageFromController implements Initializable {
 
         tblBooks.refresh();
 
-       // txtBookID.setEditable(false);
+        // txtBookID.setEditable(false);
         tableLoad();
         loadAutorIds();
         loadSupplierIds();
         loadPublisherIds();
-     //   setTurnId();
-      //  txtBookID.setEditable(false);
+        //   setTurnId();
+        //  txtBookID.setEditable(false);
     }
-    public  void tableLoad() throws SQLException {
-        ArrayList<Book> books = BookModelDTO.loadAllBooks();
+
+    public void tableLoad() throws SQLException {
+        ArrayList<Book> books = BookModel.loadAllBooks();
         this.tblBooks.setItems(FXCollections.observableArrayList(books));
     }
 
@@ -175,7 +176,7 @@ public class BookManageFromController implements Initializable {
         book.setSupplier(SupplierId);
         book.setQty(Integer.parseInt(Qty));
 
-        boolean b1 = BookModelDTO.updateBook(book);
+        boolean b1 = BookModel.updateBook(book);
     }
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
@@ -184,11 +185,11 @@ public class BookManageFromController implements Initializable {
 
         String BookID = txtSearchBookID.getText();
 
-        boolean d1 = BookModelDTO.deleteFrom(BookID);
+        boolean d1 = BookModel.deleteFrom(BookID);
         tableLoad();
 
-        if(d1) {
-            new Alert(Alert.AlertType.CONFIRMATION,"member Adding Sucses....!").show();
+        if (d1) {
+            new Alert(Alert.AlertType.CONFIRMATION, "member Adding Sucses....!").show();
             clear();
         }
     }
@@ -196,7 +197,7 @@ public class BookManageFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String SearchID = txtSearchBookID.getText();
 
-        Book b1 = BookModelDTO.searchFrom(SearchID);
+        Book b1 = BookModel.searchFrom(SearchID);
 
         txtBookID.setText(b1.getId());
         txtBookName.setText(b1.getName());
@@ -204,49 +205,44 @@ public class BookManageFromController implements Initializable {
 
 
     }
+
     public void loadAutorIds() throws SQLException {
-        ArrayList<String> AutorIds = AutorModelDTO.loadAllAutorIds();
+        ArrayList<String> AutorIds = AutorModel.loadAllAutorIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
-        for (String id : AutorIds){
+        for (String id : AutorIds) {
             ids.add(id);
         }
         cmbAutorId.setItems(ids);
     }
+
     public void loadPublisherIds() throws SQLException {
-        ArrayList<String> PublisherIds = PublisherModelDTO.loadAllPublisherIds();
+        ArrayList<String> PublisherIds = PublisherModel.loadAllPublisherIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
-        for (String id : PublisherIds){
+        for (String id : PublisherIds) {
             ids.add(id);
         }
         cmbPulisherID.setItems(ids);
     }
+
     public void loadSupplierIds() throws SQLException {
-        ArrayList<String> SupplierIds = SupplierModelDTO.loadAllSupplierIds();
+        ArrayList<String> SupplierIds = SupplierModel.loadAllSupplierIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
-        for (String id : SupplierIds){
+        for (String id : SupplierIds) {
             ids.add(id);
         }
         cmbSupplierId.setItems(ids);
 
     }
-    public void clear(){
+
+    public void clear() {
         txtBookID.setText("");
         txtBookName.setText("");
         txtBookQty.setText("");
     }
-//    private void setTurnId() {
-//        try {
-//            String newTurnId = BookModel.genarateTurnId();
-//            txtBookID.setText(newTurnId);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

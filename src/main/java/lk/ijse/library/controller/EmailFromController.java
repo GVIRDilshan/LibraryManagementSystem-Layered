@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Member;
-import lk.ijse.library.model.EmailModelDTO;
-import lk.ijse.library.model.MemberModelDTO;
+import lk.ijse.library.model.EmailModel;
+import lk.ijse.library.model.MemberModel;
 
 import javax.mail.MessagingException;
 import java.net.URL;
@@ -29,7 +29,7 @@ public class EmailFromController implements Initializable {
     private JFXComboBox<?> cmdSelectEmail;
 
     public void OnSelectEmail(ActionEvent actionEvent) throws SQLException {
-        Member member = MemberModelDTO.searchFrom((String) cmdSelectEmail.getValue());
+        Member member = MemberModel.searchFrom((String) cmdSelectEmail.getValue());
 
     }
 
@@ -46,11 +46,11 @@ public class EmailFromController implements Initializable {
 
         System.out.println("end");*/
 
-        EmailModelDTO.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , String.valueOf(cmdSelectEmail.getValue()), txtWriteEmail.getText());
+        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , String.valueOf(cmdSelectEmail.getValue()), txtWriteEmail.getText());
 
     }
     public void loadAllEmail() throws SQLException {
-        ArrayList<String> EmailIds = MemberModelDTO.loadAllMemberEmails();
+        ArrayList<String> EmailIds = MemberModel.loadAllMemberEmails();
 
         ObservableList mails = FXCollections.observableArrayList();
 

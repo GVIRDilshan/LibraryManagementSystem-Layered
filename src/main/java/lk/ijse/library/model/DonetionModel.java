@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DonetionModelDTO {
+public class DonetionModel {
 
     public static boolean DonetionAdd(Donetion donetion) throws SQLException {
 

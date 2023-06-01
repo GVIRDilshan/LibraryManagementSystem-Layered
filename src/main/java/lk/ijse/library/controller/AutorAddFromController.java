@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Autor;
-import lk.ijse.library.model.AutorModelDTO;
+import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.util.Regex;
 
 import java.net.URL;
@@ -52,7 +52,7 @@ public class AutorAddFromController implements Initializable {
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtAutorID.getText();
 
-        boolean d1 = AutorModelDTO.deleteFrom(AutorID);
+        boolean d1 = AutorModel.deleteFrom(AutorID);
 
         if(d1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Delete Sucses....!").show();
@@ -63,7 +63,7 @@ public class AutorAddFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtEnterAutorID.getText();
 
-        Autor autor = AutorModelDTO.searchFrom(AutorID);
+        Autor autor = AutorModel.searchFrom(AutorID);
 
         txtAutorID.setText(autor.getAutorID());
         txtAutorName.setText(autor.getAutorName());
@@ -84,7 +84,7 @@ public class AutorAddFromController implements Initializable {
         autor1.setBookName(BookName);
         autor1.setBookID(BookID);
 
-        boolean A1 = AutorModelDTO.updateAutor(autor1);
+        boolean A1 = AutorModel.updateAutor(autor1);
 
         if(A1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();
@@ -107,7 +107,7 @@ public class AutorAddFromController implements Initializable {
         autor.setBookName(BookName);
         autor.setBookID(BookID);
 
-        boolean b1 = AutorModelDTO.AutorAdd(autor);
+        boolean b1 = AutorModel.AutorAdd(autor);
 
         if(b1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Adding Sucses....!").show();
@@ -123,7 +123,7 @@ public class AutorAddFromController implements Initializable {
     }
     private void setTurnId() {
         try {
-            String newTurnId = AutorModelDTO.genarateTurnId();
+            String newTurnId = AutorModel.genarateTurnId();
             txtAutorID.setText(newTurnId);
 
         } catch (SQLException e) {

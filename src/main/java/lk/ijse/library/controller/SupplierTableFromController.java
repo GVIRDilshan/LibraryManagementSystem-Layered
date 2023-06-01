@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.dto.Supplier;
-import lk.ijse.library.model.SupplierModelDTO;
+import lk.ijse.library.model.SupplierModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -45,7 +45,7 @@ public class SupplierTableFromController implements Initializable {
 
         ArrayList<Supplier> suppliers;
         try {
-            suppliers = SupplierModelDTO.loadAllSuppliers();
+            suppliers = SupplierModel.loadAllSuppliers();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

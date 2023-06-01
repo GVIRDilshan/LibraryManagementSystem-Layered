@@ -18,6 +18,5 @@ public class Main extends Application {
         primaryStage.setTitle("DashBoard");
         primaryStage.centerOnScreen();
         primaryStage.show();
-
     }
 }

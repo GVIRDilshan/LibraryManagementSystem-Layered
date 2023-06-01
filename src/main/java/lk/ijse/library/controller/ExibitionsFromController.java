@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Exibition;
-import lk.ijse.library.model.ExibitionModelDTO;
+import lk.ijse.library.model.ExibitionModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,7 +46,7 @@ public class ExibitionsFromController implements Initializable {
         exibition.setExibitionTime(ExibitionTime);
         exibition.setExibitionDesc(ExibitionDesc);
 
-        boolean e1 = ExibitionModelDTO.SaveExibition(exibition);
+        boolean e1 = ExibitionModel.SaveExibition(exibition);
     }
 
     @Override

@@ -11,8 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Donetion;
 import lk.ijse.library.dto.Exibition;
-import lk.ijse.library.model.DonetionModelDTO;
-import lk.ijse.library.model.ExibitionModelDTO;
+import lk.ijse.library.model.DonetionModel;
+import lk.ijse.library.model.ExibitionModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -52,15 +52,15 @@ public class DonetionFromController implements Initializable {
         donetion.setReview(review);
         donetion.setExibitionId(exibitionID);
 
-        boolean d1 = DonetionModelDTO.DonetionAdd(donetion);
+        boolean d1 = DonetionModel.DonetionAdd(donetion);
     }
 
     public void onSelectCmbExibitonID(ActionEvent actionEvent) throws SQLException {
-        Exibition exibition  = ExibitionModelDTO.searchFrom((String) cmbExibitionID.getValue());
+        Exibition exibition  = ExibitionModel.searchFrom((String) cmbExibitionID.getValue());
 
     }
     public void loadExibitionIds() throws SQLException {
-        ArrayList<String> ExibitionIds = ExibitionModelDTO.loadAllExibitionIds();
+        ArrayList<String> ExibitionIds = ExibitionModel.loadAllExibitionIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

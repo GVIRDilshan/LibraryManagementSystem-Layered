@@ -21,8 +21,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Return;
-import lk.ijse.library.model.IssuseModelDTO;
-import lk.ijse.library.model.ReturnModelDTO;
+import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.model.ReturnModel;
 import net.sf.jasperreports.engine.*;
 
 import java.io.*;
@@ -115,7 +115,7 @@ public class DashBoardFromController implements Initializable {
 
         ArrayList<Return> returns;
         try {
-            returns = ReturnModelDTO.loadAllReturnas();
+            returns = ReturnModel.loadAllReturnas();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -131,7 +131,7 @@ public class DashBoardFromController implements Initializable {
 
         ArrayList<Issuse> issuses;
         try {
-            issuses = IssuseModelDTO.loadAllIssuse();
+            issuses = IssuseModel.loadAllIssuse();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

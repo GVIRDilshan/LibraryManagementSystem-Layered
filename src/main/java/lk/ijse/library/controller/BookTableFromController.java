@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.dto.Book;
-import lk.ijse.library.model.BookModelDTO;
+import lk.ijse.library.model.BookModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -49,7 +49,7 @@ public class BookTableFromController implements Initializable {
 
         ArrayList<Book> books;
         try {
-            books = BookModelDTO.loadAllBooks();
+            books = BookModel.loadAllBooks();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Member;
-import lk.ijse.library.model.MemberModelDTO;
+import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
@@ -112,7 +112,7 @@ public class MemberManageFromController{
         member.setEmail(memberEmail);
         member.setGender(memberGender);
 
-        boolean member1 = MemberModelDTO.memberAdd(member);
+        boolean member1 = MemberModel.memberAdd(member);
 
         if (member1) {
             new Alert(Alert.AlertType.CONFIRMATION, "Member Adding Sucses....!").show();
@@ -137,7 +137,7 @@ public class MemberManageFromController{
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String SearchID = txtMemberIdSearch.getText();
 
-        Member m1 = MemberModelDTO.searchFrom(SearchID);
+        Member m1 = MemberModel.searchFrom(SearchID);
 
         txtMemberId.setText(m1.getId());
         txtMemberName.setText(m1.getName());
@@ -167,7 +167,7 @@ public class MemberManageFromController{
         member.setEmail(memberEmail);
         member.setGender(memberGender);
 
-        boolean m2 = MemberModelDTO.updateMember(member);
+        boolean m2 = MemberModel.updateMember(member);
 
         if (m2) {
             new Alert(Alert.AlertType.CONFIRMATION, "Member Update Sucses....!").show();
@@ -180,7 +180,7 @@ public class MemberManageFromController{
 
         String memberID = txtMemberId.getText();
 
-        boolean d1 = MemberModelDTO.deleteFrom(memberID);
+        boolean d1 = MemberModel.deleteFrom(memberID);
 
         if (d1) {
             new Alert(Alert.AlertType.CONFIRMATION, "member Adding Sucses....!").show();

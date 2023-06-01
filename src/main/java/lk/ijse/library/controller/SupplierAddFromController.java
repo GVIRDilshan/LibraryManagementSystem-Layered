@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Supplier;
-import lk.ijse.library.model.SupplierModelDTO;
+import lk.ijse.library.model.SupplierModel;
 import javafx.scene.control.Label;
 import lk.ijse.library.util.Regex;
 
@@ -77,7 +77,7 @@ public class SupplierAddFromController {
         supplier.setSupplierContact(SupplierContact);
         supplier.setBookID(BookID);
 
-        boolean S1 = SupplierModelDTO.SupplierAdd(supplier);
+        boolean S1 = SupplierModel.SupplierAdd(supplier);
 
     }
 
@@ -96,14 +96,14 @@ public class SupplierAddFromController {
         supplier.setSupplierAddress(SupplierAddress);
         supplier.setBookID(BookID);
 
-        boolean s2 = SupplierModelDTO.updateMember(supplier);
+        boolean s2 = SupplierModel.updateMember(supplier);
 
     }
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
         String SupplierID = txtSearchID.getText();
 
-        boolean s3 = SupplierModelDTO.deleteFrom(SupplierID);
+        boolean s3 = SupplierModel.deleteFrom(SupplierID);
 
         if(s3) {
 //            Alerts alerts = new Alerts();
@@ -116,7 +116,7 @@ public class SupplierAddFromController {
 
         String SupplierID = txtSearchID.getText();
 
-        Supplier S1 = SupplierModelDTO.searchFrom(SupplierID);
+        Supplier S1 = SupplierModel.searchFrom(SupplierID);
 
         txtSupllierID.setText(S1.getSupplierID());
         txtSupplierName.setText(S1.getSupplierName());

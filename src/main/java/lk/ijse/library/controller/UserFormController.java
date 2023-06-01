@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.User;
-import lk.ijse.library.model.UserModelDTO;
+import lk.ijse.library.model.UserModel;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
@@ -95,6 +95,6 @@ public class UserFormController {
         user.setUserName(userName);
         user.setPassword(password);
 
-        boolean users = UserModelDTO.singUp(user);
+        boolean users = UserModel.singUp(user);
     }
 }

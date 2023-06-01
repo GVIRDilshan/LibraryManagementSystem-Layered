@@ -13,7 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Member;
-import lk.ijse.library.model.MemberModelDTO;
+import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,7 +65,7 @@ public class MemberTableFromController implements Initializable {
 
         ArrayList<Member> members;
         try {
-            members = MemberModelDTO.loadAllMember();
+            members = MemberModel.loadAllMember();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

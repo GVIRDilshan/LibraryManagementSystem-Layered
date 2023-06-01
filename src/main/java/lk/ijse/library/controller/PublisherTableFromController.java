@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.dto.Publisher;
-import lk.ijse.library.model.PublisherModelDTO;
+import lk.ijse.library.model.PublisherModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -41,7 +41,7 @@ public class PublisherTableFromController implements Initializable {
 
         ArrayList<Publisher> publishers;
         try {
-            publishers = PublisherModelDTO.loadAllPublisher();
+            publishers = PublisherModel.loadAllPublisher();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
