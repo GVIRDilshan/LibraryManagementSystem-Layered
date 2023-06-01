@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ExibitionModelDTO {
+public class ExibitionModel {
     public static boolean SaveExibition(Exibition exibition) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

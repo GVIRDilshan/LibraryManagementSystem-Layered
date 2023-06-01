@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Member;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class MemberModelDTO {
+public class MemberModel {
 
     public static boolean memberAdd(Member member) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

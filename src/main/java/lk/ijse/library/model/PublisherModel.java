@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Publisher;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class PublisherModelDTO {
+public class PublisherModel {
     public static boolean PublisherAdd(Publisher publisher) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

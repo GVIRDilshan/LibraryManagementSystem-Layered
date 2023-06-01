@@ -5,7 +5,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class EmailModelDTO {
+public class EmailModel {
 
     public static void sendMail(String sender , String senderPassword  , String receiver , String messageTxt) throws MessagingException {
         Properties properties = new Properties();

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReturnModelDTO {
+public class ReturnModel {
 
     public static boolean ReturnSet(Return returns, String Qty, String BookId, String IssuseID) throws SQLException {
 

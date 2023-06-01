@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserModelDTO {
+public class UserModel {
 //    public static boolean updateUser(User user) throws SQLException {
 //        Connection con = DBConnection.getInstance().getConnection();
 //        PreparedStatement ps = con.prepareStatement("UPDATE user SET password = ? WHERE userName = ?");

@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Issuse;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class IssuseModelDTO {
+public class IssuseModel {
     public static boolean issuseFrom(Issuse issuse, String qty, String Bookd) throws SQLException {
 
         DBConnection.getInstance().getConnection().setAutoCommit(false);

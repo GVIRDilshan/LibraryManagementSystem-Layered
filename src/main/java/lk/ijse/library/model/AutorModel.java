@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Autor;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AutorModelDTO {
+public class AutorModel {
     public static boolean AutorAdd(Autor Aotor) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into autor values(?,?,?,?)";

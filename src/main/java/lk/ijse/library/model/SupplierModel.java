@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Supplier;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class SupplierModelDTO {
+public class SupplierModel {
 
     public static boolean SupplierAdd(Supplier supplier) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

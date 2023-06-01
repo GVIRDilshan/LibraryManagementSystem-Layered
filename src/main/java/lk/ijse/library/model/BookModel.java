@@ -6,7 +6,7 @@ import lk.ijse.library.dto.Book;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class BookModelDTO {
+public class BookModel {
 
     public static boolean BookAdd(Book book) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
