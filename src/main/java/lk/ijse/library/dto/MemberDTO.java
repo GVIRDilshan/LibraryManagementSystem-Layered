@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Member {
+public class MemberDTO {
     private String id;
     private String name;
     private String address;

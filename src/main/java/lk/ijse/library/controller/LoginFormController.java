@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.User;
+import lk.ijse.library.dto.UserDTO;
 import lk.ijse.library.model.UserModel;
 
 import java.io.IOException;
@@ -64,7 +64,7 @@ public class LoginFormController {
         System.out.println(txtUserName.getText());
 
         try {
-            User user = UserModel.SearchUser(txtUserName.getText());
+            UserDTO user = UserModel.SearchUser(txtUserName.getText());
 
             if (user != null && user.getPassword().equals(txtPassWord.getText())) {
                 this.userId = user.getName();

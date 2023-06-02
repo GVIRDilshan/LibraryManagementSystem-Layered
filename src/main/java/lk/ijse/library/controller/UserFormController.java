@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.User;
+import lk.ijse.library.dto.UserDTO;
 import lk.ijse.library.model.UserModel;
 import lk.ijse.library.util.Regex;
 
@@ -89,7 +89,7 @@ public class UserFormController {
         String userName = this.txtUserName.getText();
         String password = this.txtPassword.getText();
 
-        User user = new User();
+        UserDTO user = new UserDTO();
 
         user.setName(name);
         user.setUserName(userName);

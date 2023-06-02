@@ -14,9 +14,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Book;
-import lk.ijse.library.dto.Issuse;
-import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.BookDTO;
+import lk.ijse.library.dto.IssuseDTO;
+import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.model.BookModel;
 import lk.ijse.library.model.EmailModel;
 import lk.ijse.library.model.IssuseModel;
@@ -69,7 +69,7 @@ public class IssuseFromController implements Initializable {
     private DatePicker DatePiker;
 
 
-    Issuse issuse = new Issuse();
+    IssuseDTO issuse = new IssuseDTO();
 
     @FXML
     void OnBack(ActionEvent event) {
@@ -116,14 +116,14 @@ public class IssuseFromController implements Initializable {
 
     @FXML
     void OnSelectBookID(ActionEvent event) throws SQLException {
-        Book book = BookModel.searchFrom((String) cmbBookID.getValue());
+        BookDTO book = BookModel.searchFrom((String) cmbBookID.getValue());
         lblBookName.setText(book.getName());
         lblQty.setText(String.valueOf(book.getQty()));
     }
 
     @FXML
     void OnSelectMemberID(ActionEvent event) throws SQLException {
-        Member member = MemberModel.searchFrom((String) cmbMemberID.getValue());
+        MemberDTO member = MemberModel.searchFrom((String) cmbMemberID.getValue());
         lblMemberName.setText(member.getName());
         lblContact.setText(member.getEmail());
     }

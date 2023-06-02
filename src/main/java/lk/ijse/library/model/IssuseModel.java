@@ -1,13 +1,13 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Issuse;
+import lk.ijse.library.dto.IssuseDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class IssuseModel {
-    public static boolean issuseFrom(Issuse issuse, String qty, String Bookd) throws SQLException {
+    public static boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException {
 
         DBConnection.getInstance().getConnection().setAutoCommit(false);
 
@@ -49,7 +49,7 @@ public class IssuseModel {
         return false;
     }
     
-    public static Issuse IssuseSearch(String iid) throws SQLException {
+    public static IssuseDTO IssuseSearch(String iid) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from issuse where iid = ?";
@@ -61,7 +61,7 @@ public class IssuseModel {
             ResultSet result = stm.executeQuery();
 
             if (result.next()) {
-                Issuse issuses = new Issuse();
+                IssuseDTO issuses = new IssuseDTO();
                 issuses.setIssusId(result.getString(1));
                 issuses.setBookId(result.getString(2));
                 issuses.setIssusDate(result.getString(3));
@@ -74,7 +74,7 @@ public class IssuseModel {
             return null;
      }
     
-    public static ArrayList<Issuse> loadAllIssuse() throws SQLException {
+    public static ArrayList<IssuseDTO> loadAllIssuse() throws SQLException {
 
             Connection con = DBConnection.getInstance().getConnection();
             String sql = "select * from issuse";
@@ -83,10 +83,10 @@ public class IssuseModel {
 
             ResultSet result = stm.executeQuery();
 
-            ArrayList<Issuse> issuses = new ArrayList<>();
+            ArrayList<IssuseDTO> issuses = new ArrayList<>();
 
             while (result.next()) {
-                Issuse issuse1 = new Issuse();
+                IssuseDTO issuse1 = new IssuseDTO();
 
                 issuse1.setIssusId(result.getString(1));
                 issuse1.setBookId(result.getString(2));

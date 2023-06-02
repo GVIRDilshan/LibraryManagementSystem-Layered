@@ -1,14 +1,14 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.MemberDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class MemberModel {
 
-    public static boolean memberAdd(Member member) throws SQLException {
+    public static boolean memberAdd(MemberDTO member) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into Member values(?,?,?,?,?,?,?)";
 
@@ -24,7 +24,7 @@ public class MemberModel {
 
         return stm.executeUpdate() > 0;
     }
-    public static Member searchFrom(String id) throws SQLException {
+    public static MemberDTO searchFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from member where memberId=?";
 
@@ -34,7 +34,7 @@ public class MemberModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            Member member = new Member();
+            MemberDTO member = new MemberDTO();
             member.setId(result.getString(1));
             member.setName(result.getString(2));
             member.setAddress(result.getString(3));
@@ -46,7 +46,7 @@ public class MemberModel {
         }
         return null;
     }
-    public static Boolean updateMember(Member member) throws SQLException {
+    public static Boolean updateMember(MemberDTO member) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "update member set name=?,address=?,contact=?,age=?,email=?,Gender=? where memberId=?";
 
@@ -84,7 +84,7 @@ public class MemberModel {
                 return false;
             }
     }
-    public static ArrayList<Member> loadAllMember() throws SQLException {
+    public static ArrayList<MemberDTO> loadAllMember() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from member";
@@ -93,10 +93,10 @@ public class MemberModel {
 
             ResultSet result = stm.executeQuery();
 
-            ArrayList<Member> members = new ArrayList<>();
+            ArrayList<MemberDTO> members = new ArrayList<>();
 
             while (result.next()) {
-                Member member = new Member();
+                MemberDTO member = new MemberDTO();
 
                 member.setId(result.getString(1));
                 member.setName(result.getString(2));

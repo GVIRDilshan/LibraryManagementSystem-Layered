@@ -1,7 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Return;
+import lk.ijse.library.dto.ReturnDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ReturnModel {
 
-    public static boolean ReturnSet(Return returns, String Qty, String BookId, String IssuseID) throws SQLException {
+    public static boolean ReturnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into returnse values(?,?,?,?,?)";
@@ -67,7 +67,7 @@ public class ReturnModel {
 
         return false;
     }
-    public static ArrayList<Return> loadAllReturnas() throws SQLException {
+    public static ArrayList<ReturnDTO> loadAllReturnas() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -77,10 +77,10 @@ public class ReturnModel {
 
         ResultSet result = stm.executeQuery();
 
-        ArrayList<Return> returns = new ArrayList<>();
+        ArrayList<ReturnDTO> returns = new ArrayList<>();
 
         while (result.next()) {
-            Return returnss = new Return();
+            ReturnDTO returnss = new ReturnDTO();
             returnss.setReturnId(result.getString(1));
             returnss.setReturnDate(result.getString(2));
             returnss.setIssuseId(result.getString(3));

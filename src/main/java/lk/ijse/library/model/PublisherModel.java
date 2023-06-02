@@ -1,13 +1,13 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Publisher;
+import lk.ijse.library.dto.PublisherDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class PublisherModel {
-    public static boolean PublisherAdd(Publisher publisher) throws SQLException {
+    public static boolean PublisherAdd(PublisherDTO publisher) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into publisher values(?,?,?,?)";
@@ -22,7 +22,7 @@ public class PublisherModel {
 
         return stm.executeUpdate() > 0;
     }
-    public static Publisher searchFrom(String id) throws SQLException {
+    public static PublisherDTO searchFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from publisher where pbId=?";
@@ -33,7 +33,7 @@ public class PublisherModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            Publisher publisher = new Publisher();
+            PublisherDTO publisher = new PublisherDTO();
             publisher.setPublisherID(result.getString(1));
             publisher.setPublisherName(result.getString(2));
             publisher.setBookID(result.getString(3));
@@ -41,7 +41,7 @@ public class PublisherModel {
         }
         return null;
     }
-    public static Boolean updatePublisher(Publisher publisher) throws SQLException {
+    public static Boolean updatePublisher(PublisherDTO publisher) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "update publisher set name=?,Book_Id=?,pdDate=? where pbId=?";
 
@@ -92,7 +92,7 @@ public class PublisherModel {
         }
         return PublisherIds;
     }
-    public static ArrayList<Publisher> loadAllPublisher() throws SQLException {
+    public static ArrayList<PublisherDTO> loadAllPublisher() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -102,10 +102,10 @@ public class PublisherModel {
 
         ResultSet result = stm.executeQuery();
 
-        ArrayList<Publisher> publishers = new ArrayList<>();
+        ArrayList<PublisherDTO> publishers = new ArrayList<>();
 
         while (result.next()) {
-            Publisher publisher = new Publisher();
+            PublisherDTO publisher = new PublisherDTO();
             publisher.setPublisherID(result.getString(1));
             publisher.setPublisherName(result.getString(2));
             publisher.setBookID(result.getString(3));

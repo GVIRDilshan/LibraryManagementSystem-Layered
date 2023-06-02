@@ -1,4 +1,4 @@
 package lk.ijse.library.dto;
 
-public class FineMoney {
+public class FineMoneyDTO {
 }

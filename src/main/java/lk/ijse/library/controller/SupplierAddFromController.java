@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Supplier;
+import lk.ijse.library.dto.SupplierDTO;
 import lk.ijse.library.model.SupplierModel;
 import javafx.scene.control.Label;
 import lk.ijse.library.util.Regex;
@@ -69,7 +69,7 @@ public class SupplierAddFromController {
         String SupplierContact = txtContact.getText();
         String BookID = txtBookID.getText();
 
-        Supplier supplier = new Supplier();
+        SupplierDTO supplier = new SupplierDTO();
 
         supplier.setSupplierID(SupplierID);
         supplier.setSupplierName(SupplierName);
@@ -88,7 +88,7 @@ public class SupplierAddFromController {
         String SupplierAddress =  txtSupplierAddress.getText();
         String BookID          =  txtBookID.getText();
 
-        Supplier supplier = new Supplier();
+        SupplierDTO supplier = new SupplierDTO();
 
         supplier.setSupplierID(SupplierID);
         supplier.setSupplierName(SupplierName);
@@ -116,7 +116,7 @@ public class SupplierAddFromController {
 
         String SupplierID = txtSearchID.getText();
 
-        Supplier S1 = SupplierModel.searchFrom(SupplierID);
+        SupplierDTO S1 = SupplierModel.searchFrom(SupplierID);
 
         txtSupllierID.setText(S1.getSupplierID());
         txtSupplierName.setText(S1.getSupplierName());

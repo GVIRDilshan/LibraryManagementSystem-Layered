@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.library.dto.Publisher;
+import lk.ijse.library.dto.PublisherDTO;
 import lk.ijse.library.model.PublisherModel;
 
 import java.net.URL;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class PublisherTableFromController implements Initializable {
     @FXML
-    private TableView<Publisher> tblPublisher;
+    private TableView<PublisherDTO> tblPublisher;
 
     @FXML
     private TableColumn<?, ?> colPublisherID;
@@ -39,7 +39,7 @@ public class PublisherTableFromController implements Initializable {
 
         tblPublisher.refresh();
 
-        ArrayList<Publisher> publishers;
+        ArrayList<PublisherDTO> publishers;
         try {
             publishers = PublisherModel.loadAllPublisher();
         } catch (SQLException e) {

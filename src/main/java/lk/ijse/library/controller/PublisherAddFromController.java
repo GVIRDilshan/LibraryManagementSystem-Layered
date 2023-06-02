@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Publisher;
+import lk.ijse.library.dto.PublisherDTO;
 import lk.ijse.library.model.PublisherModel;
 import lk.ijse.library.util.Regex;
 
@@ -64,9 +64,9 @@ public class PublisherAddFromController {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String PublisherSearchID = txtEnterPbID.getText();
 
-        Publisher p1 = PublisherModel.searchFrom(PublisherSearchID);
+        PublisherDTO p1 = PublisherModel.searchFrom(PublisherSearchID);
 
-        Publisher p2 = new Publisher();
+        PublisherDTO p2 = new PublisherDTO();
 
         txtPublisherID.setText(p1.getPublisherID());
         txtPublisherName.setText(p1.getPublisherName());
@@ -79,7 +79,7 @@ public class PublisherAddFromController {
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
 
-        Publisher publisher = new Publisher();
+        PublisherDTO publisher = new PublisherDTO();
         publisher.setPublisherID(PublisherID);
         publisher.setPublisherName(PublisherName);
         publisher.setBookID(BookID);
@@ -93,7 +93,7 @@ public class PublisherAddFromController {
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
 
-        Publisher publisher = new Publisher();
+        PublisherDTO publisher = new PublisherDTO();
 
         publisher.setPublisherID(PublisherID);
         publisher.setPublisherName(PublisherName);

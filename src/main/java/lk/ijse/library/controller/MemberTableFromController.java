@@ -12,7 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class MemberTableFromController implements Initializable {
     private AnchorPane root;
 
     @FXML
-    private TableView<Member> tblMembers;
+    private TableView<MemberDTO> tblMembers;
 
     @FXML
     private TableColumn<?, ?> colMemberID;
@@ -63,7 +63,7 @@ public class MemberTableFromController implements Initializable {
 
         tblMembers.refresh();
 
-        ArrayList<Member> members;
+        ArrayList<MemberDTO> members;
         try {
             members = MemberModel.loadAllMember();
         } catch (SQLException e) {

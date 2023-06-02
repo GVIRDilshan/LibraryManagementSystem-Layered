@@ -1,14 +1,14 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Supplier;
+import lk.ijse.library.dto.SupplierDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class SupplierModel {
 
-    public static boolean SupplierAdd(Supplier supplier) throws SQLException {
+    public static boolean SupplierAdd(SupplierDTO supplier) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into supplier values(?,?,?,?,?)";
 
@@ -22,7 +22,7 @@ public class SupplierModel {
 
         return stm.executeUpdate() > 0;
     }
-    public static Supplier searchFrom(String id) throws SQLException {
+    public static SupplierDTO searchFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from supplier where  SupplierId=?";
 
@@ -32,7 +32,7 @@ public class SupplierModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-           Supplier supplier = new Supplier();
+           SupplierDTO supplier = new SupplierDTO();
            supplier.setSupplierID(result.getString(1));
            supplier.setSupplierName(result.getString(2));
            supplier.setSupplierAddress(result.getString(3));
@@ -42,7 +42,7 @@ public class SupplierModel {
         }
         return null;
     }
-    public static Boolean updateMember(Supplier supplier) throws SQLException {
+    public static Boolean updateMember(SupplierDTO supplier) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "update supplier set name=?,Contact=?,Addresse=?, Book_Id=? where SupplierId=?";
 
@@ -94,7 +94,7 @@ public class SupplierModel {
         }
         return SupplierIds;
     }
-    public static ArrayList<Supplier> loadAllSuppliers() throws SQLException {
+    public static ArrayList<SupplierDTO> loadAllSuppliers() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -104,10 +104,10 @@ public class SupplierModel {
 
         ResultSet result = stm.executeQuery();
 
-        ArrayList<Supplier> suppliers = new ArrayList<>();
+        ArrayList<SupplierDTO> suppliers = new ArrayList<>();
 
         while (result.next()) {
-            Supplier supplier = new Supplier();
+            SupplierDTO supplier = new SupplierDTO();
             supplier.setSupplierID(result.getString(1));
             supplier.setSupplierName(result.getString(2));
             supplier.setSupplierContact(result.getString(3));

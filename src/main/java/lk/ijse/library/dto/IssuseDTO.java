@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Issuse {
+public class IssuseDTO {
     private String issusId;
     private String issusDate;
     private String memberId;

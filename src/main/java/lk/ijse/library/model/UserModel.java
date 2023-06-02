@@ -1,7 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.User;
+import lk.ijse.library.dto.UserDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +20,7 @@ public class UserModel {
 //
 //    }
 
-    public static User SearchUser(String name) throws SQLException {
+    public static UserDTO SearchUser(String name) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from user where useName = ?";
 
@@ -31,7 +31,7 @@ public class UserModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            User user = new User();
+            UserDTO user = new UserDTO();
             user.setName(result.getString(1));
             user.setUserName(result.getString(2));
             user.setPassword(result.getString(3));
@@ -41,7 +41,7 @@ public class UserModel {
         return null;
     }
 
-    public static boolean singUp(User user) throws SQLException {
+    public static boolean singUp(UserDTO user) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO user(name , useName, password) VALUES(?, ?, ?)";
 

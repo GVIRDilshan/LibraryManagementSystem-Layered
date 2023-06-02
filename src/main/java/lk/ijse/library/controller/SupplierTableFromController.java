@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.library.dto.Supplier;
+import lk.ijse.library.dto.SupplierDTO;
 import lk.ijse.library.model.SupplierModel;
 
 import java.net.URL;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class SupplierTableFromController implements Initializable {
     @FXML
-    private TableView<Supplier> tblSuppliers;
+    private TableView<SupplierDTO> tblSuppliers;
 
     @FXML
     private TableColumn<?, ?> colSupplierID;
@@ -43,7 +43,7 @@ public class SupplierTableFromController implements Initializable {
 
         tblSuppliers.refresh();
 
-        ArrayList<Supplier> suppliers;
+        ArrayList<SupplierDTO> suppliers;
         try {
             suppliers = SupplierModel.loadAllSuppliers();
         } catch (SQLException e) {

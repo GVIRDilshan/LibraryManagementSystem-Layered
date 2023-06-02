@@ -10,8 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.library.dto.Issuse;
-import lk.ijse.library.dto.Return;
+import lk.ijse.library.dto.IssuseDTO;
+import lk.ijse.library.dto.ReturnDTO;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.ReturnModel;
 
@@ -54,7 +54,7 @@ public class ReturnFromController implements Initializable {
     private Label lblMemebrEmail;
 
     @FXML
-    private TableView<Return> tblReturns;
+    private TableView<ReturnDTO> tblReturns;
 
     @FXML
     private TableColumn<?, ?> colReturnID;
@@ -71,7 +71,7 @@ public class ReturnFromController implements Initializable {
     @FXML
     private TableColumn<?, ?> colBookID;
 
-    Issuse issuse = new Issuse();
+    IssuseDTO issuse = new IssuseDTO();
 
     public ReturnFromController() throws SQLException {
     }
@@ -81,7 +81,7 @@ public class ReturnFromController implements Initializable {
 
         String IssueseID = txtIssuseID.getText();
 
-        Issuse issuse  = IssuseModel.IssuseSearch(IssueseID);
+        IssuseDTO issuse  = IssuseModel.IssuseSearch(IssueseID);
 
         lblIssueID.setText(issuse.getIssusId());
         lblBookID.setText(issuse.getBookId());
@@ -108,7 +108,7 @@ public class ReturnFromController implements Initializable {
         String BookQty = lblQty.getText();
 
 
-        Return return1 = new Return();
+        ReturnDTO return1 = new ReturnDTO();
         return1.setIssuseId(IssuseId);
         return1.setReturnId(ReturnId);
         return1.setReturnDate(ReturnDate);
@@ -131,7 +131,7 @@ public class ReturnFromController implements Initializable {
         tblReturns.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
         tblReturns.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
 
-        ArrayList<Return> returns;
+        ArrayList<ReturnDTO> returns;
         try {
             returns = ReturnModel.loadAllReturnas();
         } catch (SQLException e) {

@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Supplier {
+public class SupplierDTO {
     private String SupplierID;
     private String SupplierName;
     private String SupplierContact;

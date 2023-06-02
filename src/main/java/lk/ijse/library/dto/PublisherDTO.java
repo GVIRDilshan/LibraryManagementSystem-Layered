@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Publisher {
+public class PublisherDTO {
 
     private String PublisherID;
     private String PublisherName;

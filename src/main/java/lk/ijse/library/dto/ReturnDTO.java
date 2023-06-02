@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Return {
+public class ReturnDTO {
     private String ReturnId;
     private String IssuseId;
     private String RreturnQty;

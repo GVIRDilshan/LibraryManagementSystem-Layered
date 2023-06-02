@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.util.Regex;
 
@@ -28,7 +28,7 @@ public class MemberManageFromController{
     private AnchorPane root;
 
     @FXML
-    private TableView<Member> tblMembers;
+    private TableView<MemberDTO> tblMembers;
 
     @FXML
     private TableColumn<?, ?> colMemberID;
@@ -90,7 +90,7 @@ public class MemberManageFromController{
     @FXML
     private Label lbl7;
 
-    Member member = new Member();
+    MemberDTO member = new MemberDTO();
 
     @FXML
     void OnAdd(ActionEvent event) throws SQLException {
@@ -137,7 +137,7 @@ public class MemberManageFromController{
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String SearchID = txtMemberIdSearch.getText();
 
-        Member m1 = MemberModel.searchFrom(SearchID);
+        MemberDTO m1 = MemberModel.searchFrom(SearchID);
 
         txtMemberId.setText(m1.getId());
         txtMemberName.setText(m1.getName());
