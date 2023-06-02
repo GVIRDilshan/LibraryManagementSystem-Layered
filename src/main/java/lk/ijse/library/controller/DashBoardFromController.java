@@ -19,8 +19,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Issuse;
-import lk.ijse.library.dto.Return;
+import lk.ijse.library.dto.IssuseDTO;
+import lk.ijse.library.dto.ReturnDTO;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.ReturnModel;
 import net.sf.jasperreports.engine.*;
@@ -51,7 +51,7 @@ public class DashBoardFromController implements Initializable {
     private Label lblTopic;
 
     @FXML
-    private TableView<Issuse> tblIssuse;
+    private TableView<IssuseDTO> tblIssuse;
 
     @FXML
     private TableColumn<?, ?> coliid;
@@ -72,7 +72,7 @@ public class DashBoardFromController implements Initializable {
     private TableColumn<?, ?> colIssuseQty;
 
     @FXML
-    private TableView<Return> tblReturn;
+    private TableView<ReturnDTO> tblReturn;
 
     @FXML
     private TableColumn<?, ?> colReturnID;
@@ -113,7 +113,7 @@ public class DashBoardFromController implements Initializable {
         tblReturn.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
         tblReturn.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
 
-        ArrayList<Return> returns;
+        ArrayList<ReturnDTO> returns;
         try {
             returns = ReturnModel.loadAllReturnas();
         } catch (SQLException e) {
@@ -129,7 +129,7 @@ public class DashBoardFromController implements Initializable {
         tblIssuse.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         tblIssuse.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("issuseQty"));
 
-        ArrayList<Issuse> issuses;
+        ArrayList<IssuseDTO> issuses;
         try {
             issuses = IssuseModel.loadAllIssuse();
         } catch (SQLException e) {

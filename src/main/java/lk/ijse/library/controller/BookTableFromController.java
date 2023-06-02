@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.library.dto.Book;
+import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.model.BookModel;
 
 import java.net.URL;
@@ -18,7 +18,7 @@ public class BookTableFromController implements Initializable {
 
 
     @FXML
-    private TableView<Book> tblBooks;
+    private TableView<BookDTO> tblBooks;
 
     @FXML
     private TableColumn<?, ?> colBookID;
@@ -47,7 +47,7 @@ public class BookTableFromController implements Initializable {
         tblBooks.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Supplier"));
         tblBooks.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("qty"));
 
-        ArrayList<Book> books;
+        ArrayList<BookDTO> books;
         try {
             books = BookModel.loadAllBooks();
         } catch (SQLException e) {

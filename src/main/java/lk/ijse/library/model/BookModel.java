@@ -1,14 +1,14 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Book;
+import lk.ijse.library.dto.BookDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class BookModel {
 
-    public static boolean BookAdd(Book book) throws SQLException {
+    public static boolean BookAdd(BookDTO book) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into book values(?,?,?,?,?,?)";
 
@@ -25,7 +25,7 @@ public class BookModel {
         return stm.executeUpdate() > 0;
     }
 
-    public static ArrayList<Book> loadAllBooks() throws SQLException {
+    public static ArrayList<BookDTO> loadAllBooks() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from book";
@@ -34,10 +34,10 @@ public class BookModel {
 
         ResultSet result = stm.executeQuery();
 
-        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<BookDTO> books = new ArrayList<>();
 
         while (result.next()) {
-            Book book = new Book();
+            BookDTO book = new BookDTO();
             book.setId(result.getString(1));
             book.setName(result.getString(2));
             book.setAuthor(result.getString(3));
@@ -69,7 +69,7 @@ public class BookModel {
 
     }
 
-    public static Book searchFrom(String id) throws SQLException {
+    public static BookDTO searchFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -82,7 +82,7 @@ public class BookModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            Book book = new Book();
+            BookDTO book = new BookDTO();
 
             book.setId(result.getString(1));
             book.setName(result.getString(2));
@@ -113,7 +113,7 @@ public class BookModel {
             return false;
         }
     }
-    public static Boolean updateBook(Book book) throws SQLException {
+    public static Boolean updateBook(BookDTO book) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "update book set name=?,author_Id=?" +
                 ",Publisher=?,Supplier=?," +

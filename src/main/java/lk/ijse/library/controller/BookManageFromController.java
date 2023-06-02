@@ -60,7 +60,7 @@ public class BookManageFromController implements Initializable {
     private Label lblPublisherName;
 
     @FXML
-    private TableView<Book> tblBooks;
+    private TableView<BookDTO> tblBooks;
 
     @FXML
     private JFXTextField txtSearchBookID;
@@ -89,7 +89,7 @@ public class BookManageFromController implements Initializable {
         String BookName = txtBookName.getText();
         int Qty = Integer.parseInt(txtBookQty.getText());
 
-        Book book = new Book();
+        BookDTO book = new BookDTO();
 
         book.setId(BookID);
         book.setName(BookName);
@@ -117,20 +117,20 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     void OnSelectPulisherID(ActionEvent event) throws SQLException {
-        Publisher publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
+        PublisherDTO publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
         lblPublisherName.setText(publisher.getPublisherName());
 
     }
 
     @FXML
     void OnSelectSuplierId(ActionEvent event) throws SQLException {
-        Supplier supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
+        SupplierDTO supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
         lblSupplierName.setText(supplier.getSupplierName());
     }
 
     @FXML
     void onSelectAutorId(ActionEvent event) throws SQLException {
-        Autor autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
+        AutorDTO autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
         lblAutorName.setText(autor.getAutorName());
     }
 
@@ -156,7 +156,7 @@ public class BookManageFromController implements Initializable {
     }
 
     public void tableLoad() throws SQLException {
-        ArrayList<Book> books = BookModel.loadAllBooks();
+        ArrayList<BookDTO> books = BookModel.loadAllBooks();
         this.tblBooks.setItems(FXCollections.observableArrayList(books));
     }
 
@@ -168,7 +168,7 @@ public class BookManageFromController implements Initializable {
         String SupplierId = String.valueOf(cmbSupplierId.getValue());
         String Qty = txtBookQty.getText();
 
-        Book book = new Book();
+        BookDTO book = new BookDTO();
         book.setId(BookId);
         book.setName(BookName);
         book.setAuthor(AutorId);
@@ -197,7 +197,7 @@ public class BookManageFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String SearchID = txtSearchBookID.getText();
 
-        Book b1 = BookModel.searchFrom(SearchID);
+        BookDTO b1 = BookModel.searchFrom(SearchID);
 
         txtBookID.setText(b1.getId());
         txtBookName.setText(b1.getName());
