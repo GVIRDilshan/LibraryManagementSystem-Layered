@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.library.dto.Exibition;
+import lk.ijse.library.dto.ExibitionDTO;
 import lk.ijse.library.model.ExibitionModel;
 
 import java.net.URL;
@@ -40,7 +40,7 @@ public class ExibitionsFromController implements Initializable {
         String ExibitionTime = txtTime.getText();
         String ExibitionDesc = txtNotes.getText();
 
-        Exibition exibition = new Exibition();
+        ExibitionDTO exibition = new ExibitionDTO();
         exibition.setExibitionId(ExibitionID);
         exibition.setExibitionDate(ExibitionDate);
         exibition.setExibitionTime(ExibitionTime);

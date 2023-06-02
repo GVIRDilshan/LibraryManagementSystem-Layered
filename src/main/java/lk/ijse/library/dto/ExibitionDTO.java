@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class Exibition {
+public class ExibitionDTO {
     private String ExibitionId;
     private String ExibitionDate;
     private String ExibitionTime;

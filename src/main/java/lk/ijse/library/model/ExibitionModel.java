@@ -1,7 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Exibition;
+import lk.ijse.library.dto.ExibitionDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ExibitionModel {
-    public static boolean SaveExibition(Exibition exibition) throws SQLException {
+    public static boolean SaveExibition(ExibitionDTO exibition) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into exibitions values(?,?,?,?)";
@@ -43,7 +43,7 @@ public class ExibitionModel {
         return ExibitionIds;
     }
     
-    public static Exibition searchFrom(String id) throws SQLException {
+    public static ExibitionDTO searchFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from exibitions where ExibitionsId=?";
 
@@ -53,7 +53,7 @@ public class ExibitionModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            Exibition exibition = new Exibition();
+            ExibitionDTO exibition = new ExibitionDTO();
             exibition.setExibitionId(result.getString(1));
             exibition.setExibitionDate(result.getString(2));
             exibition.setExibitionTime(result.getString(3));
