@@ -9,8 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.library.dto.Donetion;
-import lk.ijse.library.dto.Exibition;
+import lk.ijse.library.dto.DonetionDTO;
+import lk.ijse.library.dto.ExibitionDTO;
 import lk.ijse.library.model.DonetionModel;
 import lk.ijse.library.model.ExibitionModel;
 
@@ -45,7 +45,7 @@ public class DonetionFromController implements Initializable {
         String donetBy = txtDonetBy.getText();
         String exibitionID = String.valueOf(cmbExibitionID.getValue());
 
-        Donetion donetion = new Donetion();
+        DonetionDTO donetion = new DonetionDTO();
         donetion.setDonetionId(donetionID);
         donetion.setDonetionName(donetBy);
         donetion.setAmmount(Double.parseDouble(ammount));
@@ -56,7 +56,7 @@ public class DonetionFromController implements Initializable {
     }
 
     public void onSelectCmbExibitonID(ActionEvent actionEvent) throws SQLException {
-        Exibition exibition  = ExibitionModel.searchFrom((String) cmbExibitionID.getValue());
+        ExibitionDTO exibition  = ExibitionModel.searchFrom((String) cmbExibitionID.getValue());
 
     }
     public void loadExibitionIds() throws SQLException {

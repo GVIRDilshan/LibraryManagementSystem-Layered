@@ -8,7 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.model.EmailModel;
 import lk.ijse.library.model.MemberModel;
 
@@ -29,7 +29,7 @@ public class EmailFromController implements Initializable {
     private JFXComboBox<?> cmdSelectEmail;
 
     public void OnSelectEmail(ActionEvent actionEvent) throws SQLException {
-        Member member = MemberModel.searchFrom((String) cmdSelectEmail.getValue());
+        MemberDTO member = MemberModel.searchFrom((String) cmdSelectEmail.getValue());
 
     }
 

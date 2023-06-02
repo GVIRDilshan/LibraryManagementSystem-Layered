@@ -1,7 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Donetion;
+import lk.ijse.library.dto.DonetionDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DonetionModel {
 
-    public static boolean DonetionAdd(Donetion donetion) throws SQLException {
+    public static boolean DonetionAdd(DonetionDTO donetion) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into donetion values(?,?,?,?,?)";
