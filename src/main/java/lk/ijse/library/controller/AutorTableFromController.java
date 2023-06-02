@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.library.dto.Autor;
+import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.model.AutorModel;
 
 import java.net.URL;
@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class AutorTableFromController implements Initializable {
 
     @FXML
-    private TableView<Autor> tblAutor;
+    private TableView<AutorDTO> tblAutor;
 
     @FXML
     private TableColumn<?, ?> colAutorID;
@@ -40,7 +40,7 @@ public class AutorTableFromController implements Initializable {
 
         tblAutor.refresh();
 
-        ArrayList<Autor> autors;
+        ArrayList<AutorDTO> autors;
         try {
             autors = AutorModel.loadAllAutors();
         } catch (SQLException e) {

@@ -8,7 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.library.dto.Autor;
+import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.util.Regex;
 
@@ -63,7 +63,7 @@ public class AutorAddFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtEnterAutorID.getText();
 
-        Autor autor = AutorModel.searchFrom(AutorID);
+        AutorDTO autor = AutorModel.searchFrom(AutorID);
 
         txtAutorID.setText(autor.getAutorID());
         txtAutorName.setText(autor.getAutorName());
@@ -78,7 +78,7 @@ public class AutorAddFromController implements Initializable {
         String BookID = txtBookID.getText();
         String BookName = txtBookName.getText();
 
-        Autor autor1 = new Autor();
+        AutorDTO autor1 = new AutorDTO();
         autor1.setAutorID(AutorID);
         autor1.setAutorName(AutorsName);
         autor1.setBookName(BookName);
@@ -100,7 +100,7 @@ public class AutorAddFromController implements Initializable {
         String BookName = txtBookName.getText();
         String BookID = txtBookID.getText();
 
-        Autor autor = new Autor();
+        AutorDTO autor = new AutorDTO();
 
         autor.setAutorID(AutorID);
         autor.setAutorName(AutorName);

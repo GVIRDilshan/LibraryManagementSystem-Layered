@@ -1,13 +1,13 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Autor;
+import lk.ijse.library.dto.AutorDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class AutorModel {
-    public static boolean AutorAdd(Autor Aotor) throws SQLException {
+    public static boolean AutorAdd(AutorDTO Aotor) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into autor values(?,?,?,?)";
 
@@ -27,7 +27,7 @@ public class AutorModel {
         }
     }
     
-    public static Autor searchFrom(String id) throws SQLException {
+    public static AutorDTO searchFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -40,7 +40,7 @@ public class AutorModel {
         ResultSet result = stm.executeQuery();
 
         if (result.next()) {
-            Autor autor = new Autor();
+            AutorDTO autor = new AutorDTO();
             autor.setAutorID(result.getString(1));
             autor.setAutorName(result.getString(2));
             autor.setBookID(result.getString(3));
@@ -51,7 +51,7 @@ public class AutorModel {
         return null;
     }
     
-    public static Boolean updateAutor(Autor autor) throws SQLException {
+    public static Boolean updateAutor(AutorDTO autor) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
 
@@ -110,7 +110,7 @@ public class AutorModel {
             return AutorIds;
     }
     
-    public static ArrayList<Autor> loadAllAutors() throws SQLException {
+    public static ArrayList<AutorDTO> loadAllAutors() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from autor";
@@ -119,10 +119,10 @@ public class AutorModel {
 
         ResultSet result = stm.executeQuery();
 
-        ArrayList<Autor> autors = new ArrayList<>();
+        ArrayList<AutorDTO> autors = new ArrayList<>();
 
         while (result.next()) {
-            Autor autor = new Autor();
+            AutorDTO autor = new AutorDTO();
             autor.setAutorID(result.getString(1));
             autor.setAutorName(result.getString(2));
             autor.setBookName(result.getString(3));

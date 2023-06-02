@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Autor {
+public class AutorDTO {
 
     private String AutorID;
     private String AutorName;
