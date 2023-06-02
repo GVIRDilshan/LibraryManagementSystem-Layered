@@ -1,6 +1,6 @@
 package lk.ijse.library.dto;
 
-public class Book {
+public class BookDTO {
 
     private String id;
     private String name;
