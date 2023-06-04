@@ -1,14 +1,21 @@
 package lk.ijse.library.model;
 
+import lk.ijse.library.dao.custom.impl.AutorDAOImpl;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.AutorDTO;
+import lk.ijse.library.entity.Autor;
+import org.checkerframework.checker.units.qual.A;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class AutorModel {
-    public static boolean AutorAdd(AutorDTO Aotor) throws SQLException {
-        Connection con = DBConnection.getInstance().getConnection();
+    public static boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
+        AutorDAOImpl autorDAO = new AutorDAOImpl();
+        autorDAO.add(new AutorDTO(Aotor.getAutorName(),Aotor.getAutorID(),Aotor.getBookName(),Aotor.getBookID()));
+        return false;
+    }
+      /*  Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into autor values(?,?,?,?)";
 
         PreparedStatement stm = con.prepareStatement(sql);
@@ -24,9 +31,8 @@ public class AutorModel {
             return true;
         } else {
             return false;
-        }
-    }
-    
+        }*/
+
     public static AutorDTO searchFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

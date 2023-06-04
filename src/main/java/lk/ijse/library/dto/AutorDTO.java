@@ -7,6 +7,17 @@ public class AutorDTO {
     private String BookName;
     private String BookID;
 
+    public AutorDTO(String autorID, String autorName, String bookName, String bookID) {
+        AutorID = autorID;
+        AutorName = autorName;
+        BookName = bookName;
+        BookID = bookID;
+    }
+
+    public AutorDTO() {
+
+    }
+
     public String getAutorID() {
         return AutorID;
     }

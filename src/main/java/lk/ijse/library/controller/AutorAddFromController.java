@@ -94,7 +94,7 @@ public class AutorAddFromController implements Initializable {
 
     }
 
-    public void OnAdd(ActionEvent actionEvent) throws SQLException {
+    public void OnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String AutorID = txtAutorID.getText();
         String AutorName = txtAutorName.getText();
         String BookName = txtBookName.getText();
