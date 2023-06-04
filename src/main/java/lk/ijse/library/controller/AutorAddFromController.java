@@ -147,7 +147,6 @@ public class AutorAddFromController implements Initializable {
             lbl2.setStyle("-fx-background-color: #c0392b;");
         }
     }
-
     @FXML
     void BookNameOnAction(KeyEvent event) {
         Pattern compile= Regex.getNamePattern();
