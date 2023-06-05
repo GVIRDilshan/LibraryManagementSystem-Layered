@@ -60,7 +60,7 @@ public class AutorAddFromController implements Initializable {
         }
     }
 
-    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String AutorID = txtEnterAutorID.getText();
 
         AutorDTO autor = AutorModel.searchFrom(AutorID);
@@ -72,7 +72,7 @@ public class AutorAddFromController implements Initializable {
 
     }
 
-    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String AutorID = txtAutorID.getText();
         String AutorsName = txtAutorName.getText();
         String BookID = txtBookID.getText();
