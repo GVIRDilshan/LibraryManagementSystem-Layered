@@ -18,6 +18,9 @@ public class AutorDTO {
 
     }
 
+    public AutorDTO(String s, String name, String address) {
+    }
+
     public String getAutorID() {
         return AutorID;
     }
