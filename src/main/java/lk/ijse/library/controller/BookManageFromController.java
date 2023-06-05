@@ -129,7 +129,7 @@ public class BookManageFromController implements Initializable {
     }
 
     @FXML
-    void onSelectAutorId(ActionEvent event) throws SQLException {
+    void onSelectAutorId(ActionEvent event) throws SQLException, ClassNotFoundException {
         AutorDTO autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
         lblAutorName.setText(autor.getAutorName());
     }
