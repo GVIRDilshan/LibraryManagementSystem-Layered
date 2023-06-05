@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AutorModel {
     public static boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
         AutorDAOImpl autorDAO = new AutorDAOImpl();
-        autorDAO.add(new AutorDTO(Aotor.getAutorName(),Aotor.getAutorID(),Aotor.getBookName(),Aotor.getBookID()));
+        autorDAO.add(new AutorDTO(Aotor.getAutorID(),Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID()));
         return false;
     }
       /*  Connection con = DBConnection.getInstance().getConnection();
@@ -33,9 +33,12 @@ public class AutorModel {
             return false;
         }*/
 
-    public static AutorDTO searchFrom(String id) throws SQLException {
+    public static AutorDTO searchFrom(String id) throws SQLException, ClassNotFoundException {
 
-        Connection con = DBConnection.getInstance().getConnection();
+        AutorDAOImpl autorDAO = new AutorDAOImpl();
+        autorDAO.search(id);
+
+        /*Connection con = DBConnection.getInstance().getConnection();
 
         String sql = "select * from autor where AutorId=?";
 
@@ -54,12 +57,15 @@ public class AutorModel {
 
             return autor;
         }
+        return null;*/
         return null;
     }
     
-    public static Boolean updateAutor(AutorDTO autor) throws SQLException {
+    public static Boolean updateAutor(AutorDTO autor) throws SQLException, ClassNotFoundException {
+        AutorDAOImpl autorDAO = new AutorDAOImpl();
+        autorDAO.update(new AutorDTO(autor.getAutorName(),autor.getBookName(),autor.getBookID(),autor.getAutorID()));
 
-        Connection con = DBConnection.getInstance().getConnection();
+        /*Connection con = DBConnection.getInstance().getConnection();
 
         String sql = "update autor set name=?, BookName=?,Book_Id=? where AutorId=?";
 
@@ -76,6 +82,7 @@ public class AutorModel {
         if (result == 1) {
             return true;
         }
+        return null;*/
         return null;
     }
     
