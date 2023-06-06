@@ -6,7 +6,6 @@ public class IssuseDTO {
     private String memberId;
     private String bookId;
     private String dueDate;
-
     private String issuseQty;
 
     public String getIssusId() {
