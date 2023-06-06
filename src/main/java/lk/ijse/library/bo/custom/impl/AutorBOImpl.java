@@ -20,4 +20,24 @@ public class AutorBOImpl implements AutorBO {
         autorDAO.add(new AutorDTO(Aotor.getAutorID(),Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID()));
         return false;
     }
+
+    @Override
+    public String AutorsearchFrom(String id) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public boolean AutorDelete(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean AutorGenarateTurnId() throws SQLException, ClassNotFoundException {
+        return false;
+    }
 }
