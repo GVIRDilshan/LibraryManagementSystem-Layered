@@ -23,5 +23,6 @@ public class DonetionModel {
         stm.setObject(5,donetion.getExibitionId());
 
         return stm.executeUpdate() > 0;
+
     }
 }

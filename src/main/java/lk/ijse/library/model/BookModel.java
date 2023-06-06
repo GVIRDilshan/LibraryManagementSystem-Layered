@@ -24,7 +24,6 @@ public class BookModel {
 
         return stm.executeUpdate() > 0;
     }
-
     public static ArrayList<BookDTO> loadAllBooks() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

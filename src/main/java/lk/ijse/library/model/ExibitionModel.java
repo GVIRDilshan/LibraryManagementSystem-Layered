@@ -41,6 +41,7 @@ public class ExibitionModel {
             ExibitionIds.add(result.getString(1));
         }
         return ExibitionIds;
+
     }
     
     public static ExibitionDTO searchFrom(String id) throws SQLException {
