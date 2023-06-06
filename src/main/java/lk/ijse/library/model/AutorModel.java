@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AutorModel {
     public static boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
         AutorDAOImpl autorDAO = new AutorDAOImpl();
-        autorDAO.add(new AutorDTO(Aotor.getAutorID(),Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID()));
+        autorDAO.add(new Autor(Aotor.getAutorID(),Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID()));
         return false;
     }
       /*  Connection con = DBConnection.getInstance().getConnection();
@@ -63,7 +63,7 @@ public class AutorModel {
     
     public static Boolean updateAutor(AutorDTO autor) throws SQLException, ClassNotFoundException {
         AutorDAOImpl autorDAO = new AutorDAOImpl();
-        autorDAO.update(new AutorDTO(autor.getAutorName(),autor.getBookName(),autor.getBookID(),autor.getAutorID()));
+        autorDAO.update(new Autor(autor.getAutorName(),autor.getBookName(),autor.getBookID(),autor.getAutorID()));
 
         /*Connection con = DBConnection.getInstance().getConnection();
 
@@ -122,7 +122,7 @@ public class AutorModel {
             }
             return AutorIds;
     }
-    
+
     public static ArrayList<AutorDTO> loadAllAutors() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

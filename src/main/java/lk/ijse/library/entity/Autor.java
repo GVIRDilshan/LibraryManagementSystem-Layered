@@ -6,6 +6,13 @@ public class Autor {
     private String BookName;
     private String BookID;
 
+    public Autor(String autorName, String bookName, String bookID, String autorID) {
+    }
+
+    public Autor() {
+
+    }
+
     public String getAutorID() {
         return AutorID;
     }
