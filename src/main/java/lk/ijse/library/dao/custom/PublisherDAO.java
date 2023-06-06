@@ -1,4 +1,7 @@
 package lk.ijse.library.dao.custom;
 
-public interface PublisherDAO {
+import lk.ijse.library.dao.CrudDAO;
+import lk.ijse.library.entity.Publisher;
+
+public interface PublisherDAO extends CrudDAO<Publisher> {
 }
