@@ -13,4 +13,8 @@ public class Donetion {
     private double Ammount;
     private String donetionName;
     private String ExibitionId;
+
+    public Donetion(String donetionId, double ammount, String review, String donetionName, String exibitionId) {
+
+    }
 }
