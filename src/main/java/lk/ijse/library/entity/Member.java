@@ -15,4 +15,7 @@ public class Member {
     private int age;
     private String Email;
     private String Gender;
+
+    public Member(String id, String name, String address, int age, String contact, String email, String gender) {
+    }
 }
