@@ -8,6 +8,13 @@ public class IssuseDTO {
     private String dueDate;
     private String issuseQty;
 
+    public IssuseDTO(String issusId, String bookId, String issusDate, String memberId, String dueDate, String issuseQty, String qty, String bookd) {
+    }
+
+    public IssuseDTO() {
+
+    }
+
     public String getIssusId() {
         return issusId;
     }

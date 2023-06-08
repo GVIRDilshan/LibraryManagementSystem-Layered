@@ -99,8 +99,4 @@ public class IssuseModel {
             }
             return issuses;
         }
-
 }
-
-
-

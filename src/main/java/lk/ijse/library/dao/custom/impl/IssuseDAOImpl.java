@@ -133,4 +133,5 @@ public class IssuseDAOImpl implements IssuseDAO {
     public String generateNewID() throws SQLException, ClassNotFoundException {
         return null;
     }
+
 }
