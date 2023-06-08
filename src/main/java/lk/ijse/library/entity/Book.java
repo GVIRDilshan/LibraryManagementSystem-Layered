@@ -21,6 +21,9 @@ public class Book {
 
     }
 
+    public Book(String id, String name, String author, String publisher, String supplier, int qty) {
+    }
+
     public String getId() {
         return id;
     }
