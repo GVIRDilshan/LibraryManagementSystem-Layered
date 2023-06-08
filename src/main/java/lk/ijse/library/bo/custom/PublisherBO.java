@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface PublisherBO {
-    public boolean DonetionAdd(PublisherDTO publisher) throws SQLException, ClassNotFoundException;
-    public Publisher DonetionsearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean DonetionDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean DonetionUpdate(PublisherDTO publisher) throws SQLException, ClassNotFoundException;
-    public String DonetionGenarateTurnId() throws SQLException, ClassNotFoundException;
-    public ArrayList<PublisherDTO> loadAllDonetionIds() throws SQLException, ClassNotFoundException;
-    public ArrayList<PublisherDTO> loadAllDonetion() throws SQLException, ClassNotFoundException;
+    public boolean PublisherAdd(PublisherDTO publisher) throws SQLException, ClassNotFoundException;
+    public Publisher PublishersearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean PublisherDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean PublisherUpdate(PublisherDTO publisher) throws SQLException, ClassNotFoundException;
+    public String PublisherGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public ArrayList<PublisherDTO> loadAllPublisherIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<PublisherDTO> loadAllPublisher() throws SQLException, ClassNotFoundException;
 }
