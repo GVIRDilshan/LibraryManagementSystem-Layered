@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UserBO {
-    public boolean DonetionAdd(UserDTO user) throws SQLException, ClassNotFoundException;
-    public User DonetionsearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean UserAdd(UserDTO user) throws SQLException, ClassNotFoundException;
+    public User UsersearchFrom(String id) throws SQLException, ClassNotFoundException;
 
 }
