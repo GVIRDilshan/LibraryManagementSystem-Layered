@@ -7,5 +7,5 @@ import lk.ijse.library.entity.Issuse;
 import java.sql.SQLException;
 
 public interface IssuseDAO extends CrudDAO<Issuse> {
-    public  boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException;
+    public  boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException, ClassNotFoundException;
 }

@@ -1,5 +1,13 @@
 package lk.ijse.library.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class AutorDTO {
 
     private String AutorID;
@@ -7,7 +15,7 @@ public class AutorDTO {
     private String BookName;
     private String BookID;
 
-    public AutorDTO(String autorID, String autorName, String bookName, String bookID) {
+    /*public AutorDTO(String autorID, String autorName, String bookName, String bookID) {
         AutorID = autorID;
         AutorName = autorName;
         BookName = bookName;
@@ -51,5 +59,5 @@ public class AutorDTO {
 
     public void setBookID(String bookID) {
         BookID = bookID;
-    }
+    }*/
 }

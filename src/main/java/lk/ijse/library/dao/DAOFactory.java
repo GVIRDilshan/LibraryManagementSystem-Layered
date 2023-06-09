@@ -19,25 +19,25 @@ public class DAOFactory {
     public SuperDAO getDAO(DAOTypes types){
         switch (types) {
             case AUTOR:
-                return (SuperDAO) new AutorDAOImpl();
+                return new AutorDAOImpl();
             case BOOK:
-                return (SuperDAO) new BookDAOImpl();
+                return new BookDAOImpl();
             case DONETION:
-                return (SuperDAO) new DonetionDAOImpl();
+                return new DonetionDAOImpl();
             case EXIBITION:
-                return (SuperDAO) new ExibitionDAOImpl();
+                return new ExibitionDAOImpl();
             case ISSUSE:
-                return (SuperDAO) new IssuseDAOImpl();
+                return new IssuseDAOImpl();
             case MEMBER:
-                return (SuperDAO) new MemberDAOImpl();
+                return new MemberDAOImpl();
             case PUBLISHER:
-                return (SuperDAO) new PublisherDAOImpl();
+                return new PublisherDAOImpl();
             case RETURN:
-                return (SuperDAO) new ReturnDAOImpl();
+                return new ReturnDAOImpl();
             case SUPPLIER:
-                return (SuperDAO) new SuplierDAOImpl();
+                return new SuplierDAOImpl();
             case USER:
-                return (SuperDAO) new UserDAOImpl();
+                return new UserDAOImpl();
             default:
                 return null;
         }

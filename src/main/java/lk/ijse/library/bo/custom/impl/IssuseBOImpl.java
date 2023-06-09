@@ -13,9 +13,11 @@ public class IssuseBOImpl implements IssuseBO {
     IssuseDAOImpl issuseDAO = new IssuseDAOImpl();
 
     @Override
-    public boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException {
-      //  issuseDAO.issuseFrom(new IssuseDTO(issuse.getIssusId(),issuse.getBookId(),issuse.getIssusDate(),issuse.getMemberId(),issuse.getDueDate(),issuse.getIssuseQty()));
-        return false;
+    public boolean issuseFrom(IssuseDTO issuse, String qty, String bookId) throws SQLException, ClassNotFoundException {/*
+        issuseDAO.issuseFrom(new IssuseDTO(issuse.getIssusId(),issuse.getBookId(),issuse.getIssusDate(),issuse.getMberId(),issuse.getDueDate(),issuse.getIssuseQty()));
+       // issuseDAO.issuseFrom()*/
+        return issuseDAO.issuseFrom(issuse , qty , bookId);
+
     }
 
     @Override

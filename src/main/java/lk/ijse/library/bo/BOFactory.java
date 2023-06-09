@@ -11,8 +11,7 @@ public class BOFactory {
     private BOFactory(){
 
     }
-
-    private static BOFactory getBoFactory(){
+    public static BOFactory getBoFactory(){
         return(boFactory == null ) ? boFactory = new BOFactory() : boFactory;
     }
     public enum BOTypes{
@@ -21,25 +20,25 @@ public class BOFactory {
     public SuperBO getBO(BOFactory.BOTypes boTypes){
         switch (boTypes) {
             case AUTOR:
-                return (SuperBO) new AutorBOImpl();
+                return new AutorBOImpl();
             case BOOK:
-                return (SuperBO) new BookBOImpl();
+                return new BookBOImpl();
             case DONETION:
-                return (SuperBO) new DonetionDAOImpl();
+                return new DonetionBOImpl();
             case EXIBITION:
-                return (SuperBO) new ExibitionBOImpl();
+                return new ExibitionBOImpl();
             case ISSUSE:
-                return (SuperBO) new IssuseBOImpl();
+                return new IssuseBOImpl();
             case MEMBER:
-                return (SuperBO) new MemberBOImpl();
+                return new MemberBOImpl();
             case PUBLISHER:
-                return (SuperBO) new PublisherBOImpl();
+                return new PublisherBOImpl();
             case RETURN:
-                return (SuperBO) new ReturnBOImpl();
+                return new ReturnBOImpl();
             case SUPPLIER:
-                return (SuperBO) new SupplierBOImpl();
+                return new SupplierBOImpl();
             case USER:
-                return (SuperBO) new UserBOImpl();
+                return new UserBOImpl();
             default:
                 return null;
         }
