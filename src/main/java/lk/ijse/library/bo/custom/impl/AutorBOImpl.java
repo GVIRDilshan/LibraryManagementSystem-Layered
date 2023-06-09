@@ -11,55 +11,51 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AutorBOImpl implements AutorBO {
-    @Override
-    public boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
-        AutorDAOImpl autorDAO = new AutorDAOImpl();
-        /*
-        methanin(autorDAO.add( new Autor(...) )) parameter ek entity package eke Autor object ekk vidiyta yavanna..ethod dao eke
-        use venne entity package eke object vitharai.. dn ethota AutorDAO eke CrudDAO ek extend karanota
-        Autor object ek danna genertic type ek vidiyata AutorDTO nathuva
-        */
-        autorDAO.add(new Autor(Aotor.getAutorID(),Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID()));
-        return false;
 
+    AutorDAOImpl autorDAO = new AutorDAOImpl();
+    @Override
+    public boolean autorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
+        return autorDAO.add(new Autor(Aotor.getAutorID(), Aotor.getAutorName(), Aotor.getBookName(), Aotor.getBookID()));
     }
 
     @Override
-    public String AutorsearchFrom(String id) throws SQLException, ClassNotFoundException {
-        return null;
+    public AutorDTO autorsearchFrom(String id) throws SQLException, ClassNotFoundException {
+        Autor autor = autorDAO.search(id);
+       // System.out.println(autor.getAutorID());
+
+        return new AutorDTO(autor.getAutorID() , autor.getAutorName(), autor.getBookName(), autor.getBookID() );
+
     }
 
     @Override
     public boolean AutorDelete(String id) throws SQLException, ClassNotFoundException {
-        AutorDAOImpl autorDAO = new AutorDAOImpl();
         return autorDAO.delete(id);
     }
 
     @Override
     public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
-        AutorDAOImpl autorDAO = new AutorDAOImpl();
-        autorDAO.update(new Autor(Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID(),Aotor.getAutorID()));
-        return false;
+       return autorDAO.update(new Autor(Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID(),Aotor.getAutorID()));
+       // System.out.println();
     }
 
     @Override
     public String AutorGenarateTurnId() throws SQLException, ClassNotFoundException {
-       AutorDAOImpl autorDAO = new AutorDAOImpl();
        return autorDAO.generateNewID();
     }
 
     @Override
     public ArrayList<String> loadAllAutorIds() throws SQLException {
-        return null;
+        return autorDAO.loadAllIds();
     }
 
     @Override
     public ArrayList<AutorDTO> loadAllAutors() throws SQLException, ClassNotFoundException {
         ArrayList<AutorDTO> allAutors = new ArrayList<>();
-        ArrayList<Autor> all = new AutorDAOImpl().loadAll();
-        for (Autor a : all) {
+
+        for (Autor a : autorDAO.loadAll()) {
             allAutors.add(new AutorDTO(a.getAutorID(),a.getAutorName(),a.getBookName(),a.getBookID()));
         }
+
         return allAutors;
     }
 }

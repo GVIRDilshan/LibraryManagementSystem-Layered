@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface AutorBO extends SuperBO {
-    public boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
+    public boolean autorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
     public AutorDTO autorsearchFrom(String id) throws SQLException, ClassNotFoundException;
     public boolean AutorDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException;

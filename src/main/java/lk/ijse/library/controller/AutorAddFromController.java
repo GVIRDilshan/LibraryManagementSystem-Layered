@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.AutorBO;
 import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.util.Regex;
@@ -49,10 +51,11 @@ public class AutorAddFromController implements Initializable {
     @FXML
     private Label lbl4;
 
-    public void OnDelete(ActionEvent actionEvent) throws SQLException {
-        String AutorID = txtAutorID.getText();
+    AutorBO autorBO = (AutorBO)  BOFactory.getBoFactory().getBO(BOFactory.BOTypes.AUTOR);
 
-        boolean d1 = AutorModel.deleteFrom(AutorID);
+    public void OnDelete(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String AutorID = txtAutorID.getText();
+        boolean d1 = autorBO.AutorDelete(AutorID);
 
         if(d1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Delete Sucses....!").show();
@@ -63,7 +66,7 @@ public class AutorAddFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String AutorID = txtEnterAutorID.getText();
 
-        AutorDTO autor = AutorModel.searchFrom(AutorID);
+        AutorDTO autor = autorBO.autorsearchFrom(AutorID);
 
         txtAutorID.setText(autor.getAutorID());
         txtAutorName.setText(autor.getAutorName());
@@ -73,42 +76,31 @@ public class AutorAddFromController implements Initializable {
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String AutorID = txtAutorID.getText();
-        String AutorsName = txtAutorName.getText();
-        String BookID = txtBookID.getText();
-        String BookName = txtBookName.getText();
-
         AutorDTO autor1 = new AutorDTO();
-        autor1.setAutorID(AutorID);
-        autor1.setAutorName(AutorsName);
-        autor1.setBookName(BookName);
-        autor1.setBookID(BookID);
 
-        boolean A1 = AutorModel.updateAutor(autor1);
+        autor1.setAutorID(txtAutorID.getText());
+        autor1.setAutorName(txtAutorName.getText());
+        autor1.setBookName(txtBookID.getText());
+        autor1.setBookID(txtBookID.getText());
 
+        boolean A1 = autorBO.AutorUpdate(autor1);
+        /*System.out.println(autor1);*/
         if(A1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();
             clear();
             clear();
         }
-
     }
 
     public void OnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String AutorID = txtAutorID.getText();
-        String AutorName = txtAutorName.getText();
-        String BookName = txtBookName.getText();
-        String BookID = txtBookID.getText();
-
         AutorDTO autor = new AutorDTO();
 
-        autor.setAutorID(AutorID);
-        autor.setAutorName(AutorName);
-        autor.setBookName(BookName);
-        autor.setBookID(BookID);
+        autor.setAutorID(txtAutorID.getText() );
+        autor.setAutorName(txtAutorName.getText() );
+        autor.setBookName(txtBookName.getText() );
+        autor.setBookID(txtBookID.getText() );
 
-        boolean b1 = AutorModel.AutorAdd(autor);
-
+        boolean b1 = autorBO.autorAdd(autor);
         if(b1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Adding Sucses....!").show();
             clear();
@@ -130,7 +122,6 @@ public class AutorAddFromController implements Initializable {
             e.printStackTrace();
         }
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setTurnId();
@@ -158,5 +149,4 @@ public class AutorAddFromController implements Initializable {
             lbl4.setStyle("-fx-background-color: #c0392b;");
         }
     }
-
 }
