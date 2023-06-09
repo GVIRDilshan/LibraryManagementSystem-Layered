@@ -35,7 +35,7 @@ public class DAOFactory {
             case RETURN:
                 return (SuperDAO) new ReturnDAOImpl();
             case SUPPLIER:
-                return (SuperDAO) new SupplierBOImpl();
+                return (SuperDAO) new SuplierDAOImpl();
             case USER:
                 return (SuperDAO) new UserDAOImpl();
             default:
