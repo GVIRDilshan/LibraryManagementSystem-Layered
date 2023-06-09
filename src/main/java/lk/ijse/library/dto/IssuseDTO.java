@@ -13,6 +13,7 @@ public class IssuseDTO {
 
     public IssuseDTO() {
 
+
     }
 
     public String getIssusId() {

@@ -1,6 +1,7 @@
 package lk.ijse.library.dao.custom.impl;
 
 import lk.ijse.library.dao.CrudDAO;
+import lk.ijse.library.dao.SQLUtil;
 import lk.ijse.library.dao.custom.IssuseDAO;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.IssuseDTO;
@@ -14,34 +15,27 @@ import java.util.ArrayList;
 
 public class IssuseDAOImpl implements IssuseDAO {
     @Override
-    public boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException {
+    public boolean issuseFrom(IssuseDTO issuse, String qty, String bookd) throws SQLException, ClassNotFoundException {
         DBConnection.getInstance().getConnection().setAutoCommit(false);
 
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into issuse values(?,?,?,?,?,?)";
 
-        PreparedStatement stm = con.prepareStatement(sql);
+        boolean isUpdated = SQLUtil.execute(sql,
+                issuse.getIssusId(),
+                issuse.getBookId(),
+                issuse.getIssusDate(),
+                issuse.getMemberId(),
+                issuse.getDueDate(),
+                issuse.getIssuseQty()
+        );
 
-        stm.setObject(1,issuse.getIssusId());
-        stm.setObject(2,issuse.getBookId());
-        stm.setObject(3,issuse.getIssusDate());
-        stm.setObject(4,issuse.getMemberId());
-        stm.setObject(5,issuse.getDueDate());
-        stm.setObject(6,issuse.getIssuseQty());
-
-        int TakeIt = stm.executeUpdate();
-
-        if (TakeIt>0){
+        if (isUpdated) {
             String sql2 = "update book set qty=qty-? where bookId=?";
 
-            PreparedStatement stm2 = con.prepareStatement(sql2);
+            boolean isQtyUpdated = SQLUtil.execute(sql2 , qty , bookd);
 
-            stm2.setObject(1,qty);
-            stm2.setObject(2,Bookd);
-
-            int itemUpdate = stm2.executeUpdate();
-
-            if(itemUpdate>0){
+            if (isQtyUpdated) {
                 con.commit();
                 con.setAutoCommit(true);
                 return true;
@@ -106,7 +100,6 @@ public class IssuseDAOImpl implements IssuseDAO {
         }
         return issuses;
     }
-
 
 
     @Override
