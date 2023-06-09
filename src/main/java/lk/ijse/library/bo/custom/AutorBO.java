@@ -1,13 +1,15 @@
 package lk.ijse.library.bo.custom;
 
+import lk.ijse.library.bo.SuperBO;
 import lk.ijse.library.dto.AutorDTO;
+import lk.ijse.library.entity.Autor;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface AutorBO {
+public interface AutorBO extends SuperBO {
     public boolean AutorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
-    public String AutorsearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public AutorDTO autorsearchFrom(String id) throws SQLException, ClassNotFoundException;
     public boolean AutorDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
     public String AutorGenarateTurnId() throws SQLException, ClassNotFoundException;
