@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SupplierTM implements Initializable {
+public class SupplierTableFromController implements Initializable {
     @FXML
     private TableView<SupplierDTO> tblSuppliers;
 

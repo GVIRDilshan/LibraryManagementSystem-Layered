@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class PublisherTM implements Initializable {
+public class PublisherTableFromController implements Initializable {
     @FXML
     private TableView<PublisherDTO> tblPublisher;
 
