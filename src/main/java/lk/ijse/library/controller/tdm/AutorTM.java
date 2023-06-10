@@ -1,4 +1,4 @@
-package lk.ijse.library.controller;
+package lk.ijse.library.controller.tdm;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AutorTableFromController implements Initializable {
+public class AutorTM implements Initializable {
 
     @FXML
     private TableView<AutorDTO> tblAutor;

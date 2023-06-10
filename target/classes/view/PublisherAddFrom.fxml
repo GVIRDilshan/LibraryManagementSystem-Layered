@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.PublisherAddFromController">
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.ManagePublishersFromController">
     <children>
         <JFXTextField fx:id="txtPublisherID" labelFloat="true" layoutX="163.0" layoutY="204.0" prefHeight="53.0" prefWidth="555.0" promptText="PunlisherID">
             <font>

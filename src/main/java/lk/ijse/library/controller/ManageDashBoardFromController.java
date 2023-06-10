@@ -34,7 +34,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class DashBoardFromController implements Initializable {
+public class ManageDashBoardFromController implements Initializable {
 
     public Label dateLbl;
 

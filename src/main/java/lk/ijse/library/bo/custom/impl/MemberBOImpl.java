@@ -14,7 +14,7 @@ public class MemberBOImpl implements MemberBO {
     MemberDAOImpl memberDAO = new MemberDAOImpl();
 
     @Override
-    public boolean MemberAdd(MemberDTO member) throws SQLException, ClassNotFoundException {
+    public boolean memberAdd(MemberDTO member) throws SQLException, ClassNotFoundException {
         memberDAO.add(new Member(member.getId(), member.getName(),
                 member.getAddress(),member.getAge(),
                 member.getContact(), member.getEmail(),
@@ -23,17 +23,17 @@ public class MemberBOImpl implements MemberBO {
     }
 
     @Override
-    public Member MembersearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Member membersearchFrom(String id) throws SQLException, ClassNotFoundException {
         return memberDAO.search(id);
     }
 
     @Override
-    public boolean MemberDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean memberDelete(String id) throws SQLException, ClassNotFoundException {
         return memberDAO.delete(id);
     }
 
     @Override
-    public boolean MemberUpdate(MemberDTO member) throws SQLException, ClassNotFoundException {
+    public boolean memberUpdate(MemberDTO member) throws SQLException, ClassNotFoundException {
         memberDAO.update(new Member(member.getId(), member.getName(),
                 member.getAddress(),member.getAge(),
                 member.getContact(), member.getEmail(),
@@ -42,7 +42,7 @@ public class MemberBOImpl implements MemberBO {
     }
 
     @Override
-    public String MemberGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String memberGenarateTurnId() throws SQLException, ClassNotFoundException {
         return memberDAO.generateNewID();
     }
 

@@ -28,18 +28,18 @@ public class AutorBOImpl implements AutorBO {
     }
 
     @Override
-    public boolean AutorDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean autorDelete(String id) throws SQLException, ClassNotFoundException {
         return autorDAO.delete(id);
     }
 
     @Override
-    public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
+    public boolean autorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException {
        return autorDAO.update(new Autor(Aotor.getAutorName(),Aotor.getBookName(),Aotor.getBookID(),Aotor.getAutorID()));
        // System.out.println();
     }
 
     @Override
-    public String AutorGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String autorGenarateTurnId() throws SQLException, ClassNotFoundException {
        return autorDAO.generateNewID();
     }
 

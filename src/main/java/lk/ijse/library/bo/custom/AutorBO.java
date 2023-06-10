@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public interface AutorBO extends SuperBO {
     public boolean autorAdd(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
     public AutorDTO autorsearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean AutorDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean AutorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
-    public String AutorGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public boolean autorDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean autorUpdate(AutorDTO Aotor) throws SQLException, ClassNotFoundException;
+    public String autorGenarateTurnId() throws SQLException, ClassNotFoundException;
     public ArrayList<String> loadAllAutorIds() throws SQLException;
     public ArrayList<AutorDTO> loadAllAutors() throws SQLException, ClassNotFoundException;
 

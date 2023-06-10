@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class AutorAddFromController implements Initializable {
+public class ManageAutorsFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -55,7 +55,7 @@ public class AutorAddFromController implements Initializable {
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String AutorID = txtAutorID.getText();
-        boolean d1 = autorBO.AutorDelete(AutorID);
+        boolean d1 = autorBO.autorDelete(AutorID);
 
         if(d1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Delete Sucses....!").show();
@@ -83,7 +83,7 @@ public class AutorAddFromController implements Initializable {
         autor1.setBookName(txtBookID.getText());
         autor1.setBookID(txtBookID.getText());
 
-        boolean A1 = autorBO.AutorUpdate(autor1);
+        boolean A1 = autorBO.autorUpdate(autor1);
         /*System.out.println(autor1);*/
         if(A1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();

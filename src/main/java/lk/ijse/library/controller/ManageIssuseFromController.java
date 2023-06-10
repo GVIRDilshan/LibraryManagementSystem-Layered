@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class IssuseFromController implements Initializable {
+public class ManageIssuseFromController implements Initializable {
 
     @FXML
     private AnchorPane root;

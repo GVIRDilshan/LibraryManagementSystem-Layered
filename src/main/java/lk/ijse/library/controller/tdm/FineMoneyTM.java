@@ -1,4 +1,4 @@
-package lk.ijse.library.controller;
+package lk.ijse.library.controller.tdm;
 
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FineMoneyTableFromController {
+public class FineMoneyTM {
 
     @FXML
     private AnchorPane root;

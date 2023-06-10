@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public interface SupplierBO extends SuperBO {
     public boolean SupplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
-    public Supplier SuppliersearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public Supplier SupplierSearchFrom(String id) throws SQLException, ClassNotFoundException;
     public boolean SupplierDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean SupplierUpdate(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
     public String SupplierGenarateTurnId() throws SQLException, ClassNotFoundException;

@@ -27,7 +27,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BookManageFromController implements Initializable {
+public class ManageBooksFromController implements Initializable {
 
     @FXML
     private AnchorPane root;

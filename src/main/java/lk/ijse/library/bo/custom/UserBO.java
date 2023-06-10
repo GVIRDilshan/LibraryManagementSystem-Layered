@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UserBO extends SuperBO {
-    public boolean UserAdd(UserDTO user) throws SQLException, ClassNotFoundException;
-    public User UsersearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean userAdd(UserDTO user) throws SQLException, ClassNotFoundException;
+    public User usersearchFrom(String id) throws SQLException, ClassNotFoundException;
 
 }

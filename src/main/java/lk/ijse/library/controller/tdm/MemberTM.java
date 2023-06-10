@@ -1,4 +1,4 @@
-package lk.ijse.library.controller;
+package lk.ijse.library.controller.tdm;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MemberTableFromController implements Initializable {
+public class MemberTM implements Initializable {
 
 
     @FXML

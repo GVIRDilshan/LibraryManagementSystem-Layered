@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SupplierAddFromController {
+public class ManageSuppliersFromController {
     @FXML
     private AnchorPane root;
 

@@ -10,11 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface ExibitionBO extends SuperBO {
-    public boolean ExibitionAdd(ExibitionDTO exibition) throws SQLException, ClassNotFoundException;
-    public Exibition ExibitionsearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean ExibitionDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean ExibitionUpdate(ExibitionDTO exibition) throws SQLException, ClassNotFoundException;
-    public String ExibitionGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public boolean exibitionAdd(ExibitionDTO exibition) throws SQLException, ClassNotFoundException;
+    public Exibition exibitionsearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean exibitionDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean exibitionUpdate(ExibitionDTO exibition) throws SQLException, ClassNotFoundException;
+    public String exibitionGenarateTurnId() throws SQLException, ClassNotFoundException;
     public ArrayList<ExibitionDTO> loadAllExibitionIds() throws SQLException, ClassNotFoundException;
     public ArrayList<ExibitionDTO> loadAllExibition() throws SQLException, ClassNotFoundException;
 }

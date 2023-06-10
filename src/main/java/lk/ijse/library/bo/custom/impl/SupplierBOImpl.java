@@ -21,7 +21,7 @@ public class SupplierBOImpl implements SupplierBO {
     }
 
     @Override
-    public Supplier SuppliersearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Supplier SupplierSearchFrom(String id) throws SQLException, ClassNotFoundException {
         return supplierDAO.search(id);
     }
 

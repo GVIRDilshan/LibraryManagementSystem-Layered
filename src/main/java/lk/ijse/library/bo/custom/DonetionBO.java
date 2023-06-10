@@ -10,11 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface DonetionBO extends SuperBO {
-    public boolean DonetionAdd(DonetionDTO donetion) throws SQLException, ClassNotFoundException;
-    public Donetion DonetionsearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean DonetionDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean DonetionUpdate(DonetionDTO donetion) throws SQLException, ClassNotFoundException;
-    public String DonetionGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public boolean donetionAdd(DonetionDTO donetion) throws SQLException, ClassNotFoundException;
+    public Donetion donetionsearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean donetionDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean donetionUpdate(DonetionDTO donetion) throws SQLException, ClassNotFoundException;
+    public String donetionGenarateTurnId() throws SQLException, ClassNotFoundException;
     public ArrayList<DonetionDTO> loadAllDonetionIds() throws SQLException, ClassNotFoundException;
     public ArrayList<DonetionDTO> loadAllDonetion() throws SQLException, ClassNotFoundException;
 }

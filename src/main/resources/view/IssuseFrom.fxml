@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.IssuseFromController">
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.ManageIssuseFromController">
    <children>
       <JFXComboBox fx:id="cmbBookID" layoutX="121.0" layoutY="159.0" onAction="#OnSelectBookID" prefHeight="60.0" prefWidth="252.0" promptText="BookID" />
       <JFXComboBox fx:id="cmbMemberID" layoutX="121.0" layoutY="293.0" onAction="#OnSelectMemberID" prefHeight="60.0" prefWidth="241.0" promptText="MemberID" />

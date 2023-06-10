@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class EmailFromController implements Initializable {
+public class ManageEmailFromController implements Initializable {
     @FXML
     private AnchorPane root;
 

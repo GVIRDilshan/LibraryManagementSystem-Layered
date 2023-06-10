@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class PublisherAddFromController {
+public class ManagePublishersFromController {
     @FXML
     private AnchorPane root;
 

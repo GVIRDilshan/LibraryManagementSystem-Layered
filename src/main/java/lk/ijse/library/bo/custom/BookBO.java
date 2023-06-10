@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface BookBO extends SuperBO {
-    public boolean BookAdd(BookDTO book) throws SQLException, ClassNotFoundException;
-    public Book BooksearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean BookDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean BookUpdate(BookDTO book) throws SQLException, ClassNotFoundException;
-    public String BookGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public boolean bookAdd(BookDTO book) throws SQLException, ClassNotFoundException;
+    public Book booksearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean bookDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean bookUpdate(BookDTO book) throws SQLException, ClassNotFoundException;
+    public String bookGenarateTurnId() throws SQLException, ClassNotFoundException;
     public ArrayList<BookDTO> loadAllBookIds() throws SQLException, ClassNotFoundException;
     public ArrayList<BookDTO> loadAllBooks() throws SQLException, ClassNotFoundException;
 }

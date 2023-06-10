@@ -15,29 +15,29 @@ public class ExibitionBOImpl implements ExibitionBO {
     ExibitionDAOImpl exibitionDAO = new ExibitionDAOImpl();
 
     @Override
-    public boolean ExibitionAdd(ExibitionDTO exibition) throws SQLException, ClassNotFoundException {
+    public boolean exibitionAdd(ExibitionDTO exibition) throws SQLException, ClassNotFoundException {
         exibitionDAO.add(new Exibition(exibition.getExibitionId(),exibition.getExibitionDate(),exibition.getExibitionTime(),exibition.getExibitionDesc()));
         return false;
     }
 
     @Override
-    public Exibition ExibitionsearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Exibition exibitionsearchFrom(String id) throws SQLException, ClassNotFoundException {
         return exibitionDAO.search(id);
     }
 
     @Override
-    public boolean ExibitionDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean exibitionDelete(String id) throws SQLException, ClassNotFoundException {
         return exibitionDAO.delete(id);
     }
 
     @Override
-    public boolean ExibitionUpdate(ExibitionDTO exibition) throws SQLException, ClassNotFoundException {
+    public boolean exibitionUpdate(ExibitionDTO exibition) throws SQLException, ClassNotFoundException {
         exibitionDAO.update(new Exibition(exibition.getExibitionId(), exibition.getExibitionDate(), exibition.getExibitionTime(), exibition.getExibitionDesc()));
         return false;
     }
 
     @Override
-    public String ExibitionGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String exibitionGenarateTurnId() throws SQLException, ClassNotFoundException {
         return exibitionDAO.generateNewID();
     }
 

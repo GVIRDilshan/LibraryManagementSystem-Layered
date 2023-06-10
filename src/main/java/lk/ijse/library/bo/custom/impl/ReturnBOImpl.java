@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ReturnBOImpl implements ReturnBO {
     @Override
-    public boolean ReturnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException {
+    public boolean returnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException {
         return false;
     }
 

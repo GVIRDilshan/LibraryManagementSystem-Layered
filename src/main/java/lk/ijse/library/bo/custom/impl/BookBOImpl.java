@@ -11,29 +11,29 @@ import java.util.ArrayList;
 public class BookBOImpl implements BookBO {
     BookDAOImpl bookDAO = new BookDAOImpl();
     @Override
-    public boolean BookAdd(BookDTO book) throws SQLException, ClassNotFoundException {
+    public boolean bookAdd(BookDTO book) throws SQLException, ClassNotFoundException {
         bookDAO.add(new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty()));
         return false;
     }
 
     @Override
-    public Book BooksearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Book booksearchFrom(String id) throws SQLException, ClassNotFoundException {
         return bookDAO.search(id);
     }
 
     @Override
-    public boolean BookDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean bookDelete(String id) throws SQLException, ClassNotFoundException {
         return bookDAO.delete(id);
     }
 
     @Override
-    public boolean BookUpdate(BookDTO book) throws SQLException, ClassNotFoundException {
+    public boolean bookUpdate(BookDTO book) throws SQLException, ClassNotFoundException {
         bookDAO.update(new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty()));
         return false;
     }
 
     @Override
-    public String BookGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String bookGenarateTurnId() throws SQLException, ClassNotFoundException {
         return bookDAO.generateNewID();
     }
 

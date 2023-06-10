@@ -14,7 +14,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ExibitionsFromController implements Initializable {
+public class ManageExibitionsFromController implements Initializable {
     @FXML
     private AnchorPane root;
 

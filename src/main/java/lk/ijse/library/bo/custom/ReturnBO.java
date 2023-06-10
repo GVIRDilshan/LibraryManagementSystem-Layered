@@ -9,6 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface ReturnBO extends SuperBO {
-    public  boolean ReturnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException;
+    public  boolean returnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException;
     public ArrayList<ReturnDTO> loadAllDonetion() throws SQLException, ClassNotFoundException;
 }

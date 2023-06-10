@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.FineMoneyTableFromController">
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.tdm.FineMoneyTM">
     <children>
         <JFXButton buttonType="RAISED" layoutX="98.0" layoutY="155.0" onAction="#OnSearch" prefHeight="63.0" prefWidth="162.0" style="-fx-background-color: green;" text="Search" textFill="WHITE">
             <font>

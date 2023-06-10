@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ReturnFromController implements Initializable {
+public class ManageReturnFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -73,7 +73,7 @@ public class ReturnFromController implements Initializable {
 
     IssuseDTO issuse = new IssuseDTO();
 
-    public ReturnFromController() throws SQLException {
+    public ManageReturnFromController() throws SQLException {
     }
 
 

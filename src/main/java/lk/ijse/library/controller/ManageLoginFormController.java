@@ -17,7 +17,7 @@ import lk.ijse.library.model.UserModel;
 
 import java.io.IOException;
 
-public class LoginFormController {
+public class ManageLoginFormController {
     @FXML
     private AnchorPane root;
 

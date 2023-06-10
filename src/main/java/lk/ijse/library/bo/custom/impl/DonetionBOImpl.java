@@ -9,35 +9,34 @@ import lk.ijse.library.entity.Donetion;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 public class DonetionBOImpl implements DonetionBO {
 
     DonetionDAOImpl donetionDAO = new DonetionDAOImpl();
 
     @Override
-    public boolean DonetionAdd(DonetionDTO donetion) throws SQLException, ClassNotFoundException {
+    public boolean donetionAdd(DonetionDTO donetion) throws SQLException, ClassNotFoundException {
         donetionDAO.add(new Donetion(donetion.getDonetionId(),donetion.getAmmount(),donetion.getReview(), donetion.getDonetionName(), donetion.getExibitionId()));
         return false;
     }
 
     @Override
-    public Donetion DonetionsearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Donetion donetionsearchFrom(String id) throws SQLException, ClassNotFoundException {
         return donetionDAO.search(id);
     }
 
     @Override
-    public boolean DonetionDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean donetionDelete(String id) throws SQLException, ClassNotFoundException {
         return donetionDAO.delete(id);
     }
 
     @Override
-    public boolean DonetionUpdate(DonetionDTO donetion) throws SQLException, ClassNotFoundException {
+    public boolean donetionUpdate(DonetionDTO donetion) throws SQLException, ClassNotFoundException {
         donetionDAO.update(new Donetion(donetion.getDonetionId(),donetion.getAmmount(),donetion.getReview(),donetion.getDonetionName(),donetion.getExibitionId()));
         return false;
     }
 
     @Override
-    public String DonetionGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String donetionGenarateTurnId() throws SQLException, ClassNotFoundException {
         return donetionDAO.generateNewID();
     }
 
