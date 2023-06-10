@@ -17,6 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.BookBO;
 import lk.ijse.library.dto.*;
 import lk.ijse.library.model.*;
 import lombok.SneakyThrows;
@@ -83,8 +85,10 @@ public class ManageBooksFromController implements Initializable {
     @FXML
     private TableColumn<?, ?> colWty;
 
+    BookBO bookBO = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
+
     @FXML
-    void OnAdd(ActionEvent event) throws SQLException {
+    void OnAdd(ActionEvent event) throws SQLException, ClassNotFoundException {
         String BookID = txtBookID.getText();
         String BookName = txtBookName.getText();
         int Qty = Integer.parseInt(txtBookQty.getText());
@@ -98,7 +102,7 @@ public class ManageBooksFromController implements Initializable {
         book.setSupplier(String.valueOf(cmbSupplierId.getValue()));
         book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
-        boolean b1 = BookModel.BookAdd(book);
+        boolean b1 = bookBO.bookAdd(book);
         tableLoad();
     }
 

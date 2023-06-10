@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.DonetionBO;
 import lk.ijse.library.dto.DonetionDTO;
 import lk.ijse.library.dto.ExibitionDTO;
 import lk.ijse.library.model.DonetionModel;
@@ -37,6 +39,8 @@ public class ManageDonetionsFromController implements Initializable {
 
     @FXML
     private JFXComboBox<?> cmbExibitionID;
+
+    DonetionBO donetionBO = (DonetionBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.DONETION);
 
     public void btnOnAdd(ActionEvent actionEvent) throws SQLException {
         String donetionID = txtDonetionID.getText();
