@@ -13,31 +13,31 @@ public class PublisherBOImpl implements PublisherBO {
 
     PublisherDAOImpl publisherDAO = new PublisherDAOImpl();
     @Override
-    public boolean PublisherAdd(PublisherDTO publisher) throws SQLException, ClassNotFoundException {
+    public boolean publisherAdd(PublisherDTO publisher) throws SQLException, ClassNotFoundException {
         publisherDAO.add(new Publisher(publisher.getPublisherID(), publisher.getPublisherName(),
                 publisher.getBookID(), publisher.getPublishDate()));
         return false;
     }
 
     @Override
-    public Publisher PublishersearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Publisher publishersearchFrom(String id) throws SQLException, ClassNotFoundException {
         return publisherDAO.search(id);
     }
 
     @Override
-    public boolean PublisherDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean publisherDelete(String id) throws SQLException, ClassNotFoundException {
         return publisherDAO.delete(id);
     }
 
     @Override
-    public boolean PublisherUpdate(PublisherDTO publisher) throws SQLException, ClassNotFoundException {
+    public boolean publisherUpdate(PublisherDTO publisher) throws SQLException, ClassNotFoundException {
         publisherDAO.update(new Publisher(publisher.getPublisherID(), publisher.getPublisherName(),
                 publisher.getBookID(), publisher.getPublishDate()));
         return false;
     }
 
     @Override
-    public String PublisherGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String publisherGenarateTurnId() throws SQLException, ClassNotFoundException {
         return publisherDAO.generateNewID();
     }
 

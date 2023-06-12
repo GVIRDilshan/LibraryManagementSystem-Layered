@@ -35,9 +35,10 @@ public class PublisherDAOImpl implements PublisherDAO {
 
         PreparedStatement stm = con.prepareStatement(sql);
 
-        stm.setObject(1,dto.getPublisherName());
-        stm.setObject(2,dto.getBookID());
-        stm.setObject(3,dto.getPublisherID());
+        stm.setObject(1,dto.getPublisherID());
+        stm.setObject(2,dto.getPublisherName());
+        stm.setObject(3,dto.getBookID());
+        stm.setObject(4,dto.getPublishDate());
 
         return stm.executeUpdate() > 0;
 

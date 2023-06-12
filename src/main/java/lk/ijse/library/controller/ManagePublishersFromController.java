@@ -10,7 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.PublisherBO;
 import lk.ijse.library.dto.PublisherDTO;
+import lk.ijse.library.entity.Publisher;
 import lk.ijse.library.model.PublisherModel;
 import lk.ijse.library.util.Regex;
 
@@ -40,41 +43,32 @@ public class ManagePublishersFromController {
     @FXML
     private JFXTextField txtEnterPbID;
 
+    PublisherBO publisherBO = (PublisherBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PUBLISHER);
 
-    public void OnBack(ActionEvent actionEvent) {
-        try {
-            Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
-            Stage primaryStage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(view);
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void OnDelete(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        String publisherID = txtEnterPbID.getText();
+
+        boolean P2 = publisherBO.publisherDelete(publisherID);
+
+        if (P2){
+            clear();
         }
     }
 
-    public void OnDelete(ActionEvent actionEvent) throws SQLException {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String publisherSearchID = txtEnterPbID.getText();
 
-        String PublisherID = txtEnterPbID.getText();
-
-        boolean P2 = PublisherModel.deleteFrom(PublisherID);
-
-    }
-
-    public void OnSearch(ActionEvent actionEvent) throws SQLException {
-        String PublisherSearchID = txtEnterPbID.getText();
-
-        PublisherDTO p1 = PublisherModel.searchFrom(PublisherSearchID);
+        Publisher p1 = publisherBO.publishersearchFrom(publisherSearchID);
 
         PublisherDTO p2 = new PublisherDTO();
 
         txtPublisherID.setText(p1.getPublisherID());
         txtPublisherName.setText(p1.getPublisherName());
         txtBookID.setText(p1.getBookID());
-
     }
 
-    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String PublisherID = txtPublisherID.getText();
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
@@ -84,11 +78,14 @@ public class ManagePublishersFromController {
         publisher.setPublisherName(PublisherName);
         publisher.setBookID(BookID);
 
-         boolean b1 = PublisherModel.updatePublisher(publisher);
+         boolean b1 = publisherBO.publisherUpdate(publisher);
 
+         if (b1){
+             clear();
+         }
     }
 
-    public void OnAdd(ActionEvent actionEvent) throws SQLException {
+    public void OnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String PublisherID = txtPublisherID.getText();
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
@@ -100,8 +97,11 @@ public class ManagePublishersFromController {
         publisher.setPublishDate(String.valueOf(LocalDate.now()));
         publisher.setBookID(BookID);
 
-        boolean P1 = PublisherModel.PublisherAdd(publisher);
+        boolean P1 = publisherBO.publisherAdd(publisher);
 
+        if (P1){
+            clear();
+        }
     }
 
     public void PublisherNameOnAction(KeyEvent keyEvent) {
@@ -113,5 +113,10 @@ public class ManagePublishersFromController {
         }else{
             lbl1.setStyle("-fx-background-color: #c0392b;");
         }
+    }
+    public void clear(){
+        txtPublisherID.setText("");
+        txtPublisherName.setText("");
+        txtBookID.setText("");
     }
 }
