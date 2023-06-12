@@ -14,31 +14,31 @@ public class SupplierBOImpl implements SupplierBO {
     SuplierDAOImpl supplierDAO = new SuplierDAOImpl();
 
     @Override
-    public boolean SupplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException {
+    public boolean supplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException {
         supplierDAO.add(new Supplier(supplier.getSupplierID(),supplier.getSupplierName(),
                 supplier.getSupplierContact(), supplier.getSupplierAddress(),supplier.getBookID()));
         return false;
     }
 
     @Override
-    public Supplier SupplierSearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public Supplier supplierSearchFrom(String id) throws SQLException, ClassNotFoundException {
         return supplierDAO.search(id);
     }
 
     @Override
-    public boolean SupplierDelete(String id) throws SQLException, ClassNotFoundException {
+    public boolean supplierDelete(String id) throws SQLException, ClassNotFoundException {
         return supplierDAO.delete(id);
     }
 
     @Override
-    public boolean SupplierUpdate(SupplierDTO supplier) throws SQLException, ClassNotFoundException {
+    public boolean supplierUpdate(SupplierDTO supplier) throws SQLException, ClassNotFoundException {
         supplierDAO.update(new Supplier(supplier.getSupplierID(),supplier.getSupplierName(),
                 supplier.getSupplierContact(), supplier.getSupplierAddress(),supplier.getBookID()));
         return false;
     }
 
     @Override
-    public String SupplierGenarateTurnId() throws SQLException, ClassNotFoundException {
+    public String supplierGenarateTurnId() throws SQLException, ClassNotFoundException {
         return supplierDAO.generateNewID();
     }
 

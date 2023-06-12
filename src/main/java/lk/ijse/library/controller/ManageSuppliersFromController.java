@@ -6,12 +6,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.SupplierBO;
 import lk.ijse.library.dto.SupplierDTO;
+import lk.ijse.library.entity.Supplier;
 import lk.ijse.library.model.SupplierModel;
 import javafx.scene.control.Label;
+import lk.ijse.library.util.Alerts;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
@@ -50,6 +55,8 @@ public class ManageSuppliersFromController {
     @FXML
     private JFXTextField txtSearchID;
 
+    SupplierBO supplierBO = (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
+
     public void OnBack(ActionEvent actionEvent) {
         try {
             Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
@@ -62,26 +69,25 @@ public class ManageSuppliersFromController {
         }
     }
 
-    public void OnAdd(ActionEvent actionEvent) throws SQLException {
-        String SupplierID = txtSupllierID.getText();
-        String SupplierName = txtSupplierName.getText();
-        String SupplierAddress = txtSupplierAddress.getText();
-        String SupplierContact = txtContact.getText();
-        String BookID = txtBookID.getText();
+    public void OnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         SupplierDTO supplier = new SupplierDTO();
 
-        supplier.setSupplierID(SupplierID);
-        supplier.setSupplierName(SupplierName);
-        supplier.setSupplierAddress(SupplierAddress);
-        supplier.setSupplierContact(SupplierContact);
-        supplier.setBookID(BookID);
+        supplier.setSupplierID(txtSupllierID.getText());
+        supplier.setSupplierName(txtSupplierName.getText());
+        supplier.setSupplierAddress(txtSupplierAddress.getText());
+        supplier.setSupplierContact(txtContact.getText());
+        supplier.setBookID(txtBookID.getText());
 
-        boolean S1 = SupplierModel.SupplierAdd(supplier);
+        boolean S1 = supplierBO.supplierAdd(supplier);
 
+        if(S1) {
+            new Alert(Alert.AlertType.CONFIRMATION,"Supplier Add Sucses....!").show();
+            clear();
+        }
     }
 
-    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String SupplierID      =  txtSupllierID.getText();
         String SupplierName    =  txtSupplierName.getText();
         String SupplierContact =  txtContact.getText();
@@ -96,14 +102,13 @@ public class ManageSuppliersFromController {
         supplier.setSupplierAddress(SupplierAddress);
         supplier.setBookID(BookID);
 
-        boolean s2 = SupplierModel.updateMember(supplier);
-
+        boolean s2 = supplierBO.supplierUpdate(supplier);
     }
 
-    public void OnDelete(ActionEvent actionEvent) throws SQLException {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String SupplierID = txtSearchID.getText();
 
-        boolean s3 = SupplierModel.deleteFrom(SupplierID);
+        boolean s3 = supplierBO.supplierDelete(SupplierID);
 
         if(s3) {
 //            Alerts alerts = new Alerts();
@@ -112,11 +117,11 @@ public class ManageSuppliersFromController {
         }
     }
 
-    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String SupplierID = txtSearchID.getText();
 
-        SupplierDTO S1 = SupplierModel.searchFrom(SupplierID);
+        Supplier S1 = supplierBO.supplierSearchFrom(SupplierID);
 
         txtSupllierID.setText(S1.getSupplierID());
         txtSupplierName.setText(S1.getSupplierName());

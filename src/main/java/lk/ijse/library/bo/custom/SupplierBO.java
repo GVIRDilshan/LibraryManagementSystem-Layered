@@ -10,11 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface SupplierBO extends SuperBO {
-    public boolean SupplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
-    public Supplier SupplierSearchFrom(String id) throws SQLException, ClassNotFoundException;
-    public boolean SupplierDelete(String id) throws SQLException, ClassNotFoundException;
-    public boolean SupplierUpdate(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
-    public String SupplierGenarateTurnId() throws SQLException, ClassNotFoundException;
+    public boolean supplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
+    public Supplier supplierSearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public boolean supplierDelete(String id) throws SQLException, ClassNotFoundException;
+    public boolean supplierUpdate(SupplierDTO supplier) throws SQLException, ClassNotFoundException;
+    public String supplierGenarateTurnId() throws SQLException, ClassNotFoundException;
     public ArrayList<SupplierDTO> loadAllSupplierIds() throws SQLException, ClassNotFoundException;
     public ArrayList<SupplierDTO> loadAllSupplier() throws SQLException, ClassNotFoundException;
 }
