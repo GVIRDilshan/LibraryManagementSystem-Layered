@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.ExibitionBO;
 import lk.ijse.library.dto.ExibitionDTO;
 import lk.ijse.library.model.ExibitionModel;
 
@@ -30,11 +32,13 @@ public class ManageExibitionsFromController implements Initializable {
     @FXML
     private JFXTextField txtTime;
 
+    ExibitionBO exibitionBO = (ExibitionBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXIBITION);
+
     public void btnSendAllMembers(ActionEvent actionEvent) {
 
     }
 
-    public void onSave(ActionEvent actionEvent) throws SQLException {
+    public void onSave(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String ExibitionID = txtExibitonD.getText();
         String ExibitionDate = String.valueOf(dateSelect.getValue());
         String ExibitionTime = txtTime.getText();
@@ -46,12 +50,21 @@ public class ManageExibitionsFromController implements Initializable {
         exibition.setExibitionTime(ExibitionTime);
         exibition.setExibitionDesc(ExibitionDesc);
 
-        boolean e1 = ExibitionModel.SaveExibition(exibition);
+        boolean e1 = exibitionBO.exibitionAdd(exibition);
+
+        if (e1){
+            clear();
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+    public void clear(){
+        txtExibitonD.setText("");
+        txtNotes.setText("");
+        txtTime.setText("");
     }
 
 //    private void settime() {
