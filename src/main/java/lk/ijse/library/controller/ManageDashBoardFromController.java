@@ -267,7 +267,7 @@ public class ManageDashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/ExibitionsFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("Send Email");
+        lblTopic.setText("Exibitions From");
     }
     public void GoMemberView(ActionEvent actionEvent) throws IOException {
         Node node;
