@@ -42,13 +42,8 @@ public class PublisherBOImpl implements PublisherBO {
     }
 
     @Override
-    public ArrayList<PublisherDTO> loadAllPublisherIds() throws SQLException, ClassNotFoundException {
-        ArrayList<PublisherDTO> allPublisher = new ArrayList<>();
-        ArrayList<String> all = new PublisherDAOImpl().loadAllIds();
-        for (String b :  all) {
-            allPublisher.add(new PublisherDTO());
-        }
-        return allPublisher;
+    public ArrayList<String> loadAllPublisherIds() throws SQLException, ClassNotFoundException {
+        return publisherDAO.loadAllIds();
     }
 
     @Override

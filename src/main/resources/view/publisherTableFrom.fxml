@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.tdm.PublisherTableFromController">
+<AnchorPane prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.tdm.PublisherTM">
    <children>
       <TableView fx:id="tblPublisher" layoutX="28.0" layoutY="33.0" prefHeight="587.0" prefWidth="1035.0" stylesheets="@../StyleSheet/tableview.css">
         <columns>

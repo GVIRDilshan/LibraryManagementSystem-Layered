@@ -18,8 +18,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.SuperBO;
+import lk.ijse.library.bo.custom.AutorBO;
 import lk.ijse.library.bo.custom.BookBO;
+import lk.ijse.library.bo.custom.PublisherBO;
+import lk.ijse.library.bo.custom.SupplierBO;
+import lk.ijse.library.bo.custom.impl.SupplierBOImpl;
 import lk.ijse.library.dto.*;
+import lk.ijse.library.entity.Autor;
+import lk.ijse.library.entity.Publisher;
+import lk.ijse.library.entity.Supplier;
 import lk.ijse.library.model.*;
 import lombok.SneakyThrows;
 
@@ -86,6 +94,9 @@ public class ManageBooksFromController implements Initializable {
     private TableColumn<?, ?> colWty;
 
     BookBO bookBO = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
+    SupplierBO supplierBO = (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
+    PublisherBO publisherBO = (PublisherBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PUBLISHER);
+    AutorBO autorBO = (AutorBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.AUTOR);
 
     @FXML
     void OnAdd(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -107,34 +118,22 @@ public class ManageBooksFromController implements Initializable {
     }
 
     @FXML
-    void OnBack(ActionEvent event) {
-        try {
-            Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
-            Stage primaryStage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(view);
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void OnSelectPulisherID(ActionEvent event) throws SQLException {
-        PublisherDTO publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
+    void OnSelectPulisherID(ActionEvent event) throws SQLException, ClassNotFoundException {
+       /* PublisherDTO publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());*/
+        Publisher publisher = publisherBO.publishersearchFrom((String)cmbPulisherID.getValue());
         lblPublisherName.setText(publisher.getPublisherName());
 
     }
 
     @FXML
-    void OnSelectSuplierId(ActionEvent event) throws SQLException {
-        SupplierDTO supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
+    void OnSelectSuplierId(ActionEvent event) throws SQLException, ClassNotFoundException {
+        Supplier supplier =  supplierBO.supplierSearchFrom((String)cmbSupplierId.getValue());
         lblSupplierName.setText(supplier.getSupplierName());
     }
 
     @FXML
     void onSelectAutorId(ActionEvent event) throws SQLException, ClassNotFoundException {
-        AutorDTO autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
+        AutorDTO autor = autorBO.autorsearchFrom((String) cmbAutorId.getValue());
         lblAutorName.setText(autor.getAutorName());
     }
 
@@ -211,7 +210,7 @@ public class ManageBooksFromController implements Initializable {
     }
 
     public void loadAutorIds() throws SQLException {
-        ArrayList<String> AutorIds = AutorModel.loadAllAutorIds();
+        ArrayList<String> AutorIds = autorBO.loadAllAutorIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
@@ -221,8 +220,8 @@ public class ManageBooksFromController implements Initializable {
         cmbAutorId.setItems(ids);
     }
 
-    public void loadPublisherIds() throws SQLException {
-        ArrayList<String> PublisherIds = PublisherModel.loadAllPublisherIds();
+    public void loadPublisherIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> PublisherIds = publisherBO.loadAllPublisherIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
@@ -232,8 +231,8 @@ public class ManageBooksFromController implements Initializable {
         cmbPulisherID.setItems(ids);
     }
 
-    public void loadSupplierIds() throws SQLException {
-        ArrayList<String> SupplierIds = SupplierModel.loadAllSupplierIds();
+    public void loadSupplierIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> SupplierIds = supplierBO.loadAllSupplierIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

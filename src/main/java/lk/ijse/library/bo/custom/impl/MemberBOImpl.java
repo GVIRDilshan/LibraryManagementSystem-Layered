@@ -2,7 +2,6 @@ package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.MemberBO;
 import lk.ijse.library.dao.custom.impl.MemberDAOImpl;
-import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.entity.Member;
 
@@ -15,16 +14,18 @@ public class MemberBOImpl implements MemberBO {
 
     @Override
     public boolean memberAdd(MemberDTO member) throws SQLException, ClassNotFoundException {
-        memberDAO.add(new Member(member.getId(), member.getName(),
+        return memberDAO.add(new Member(member.getId(), member.getName(),
                 member.getAddress(),member.getAge(),
                 member.getContact(), member.getEmail(),
                 member.getGender()));
-        return false;
     }
 
     @Override
-    public Member membersearchFrom(String id) throws SQLException, ClassNotFoundException {
-        return memberDAO.search(id);
+    public MemberDTO membersearchFrom(String id) throws SQLException, ClassNotFoundException {
+        Member member = memberDAO.search(id);
+        return new MemberDTO(member.getId(), member.getName(), member.getAddress()
+                ,member.getContact(), member.getAge(), member.getEmail(),
+                member.getGender());
     }
 
     @Override
@@ -47,13 +48,8 @@ public class MemberBOImpl implements MemberBO {
     }
 
     @Override
-    public ArrayList<MemberDTO> loadAllMemberIds() throws SQLException, ClassNotFoundException {
-        ArrayList<MemberDTO> allMembers = new ArrayList<>();
-        ArrayList<String> all = new MemberBOImpl().memberDAO.loadAllIds();
-        for (String b :  all) {
-            allMembers.add(new MemberDTO());
-        }
-        return allMembers;
+    public ArrayList<String> loadAllMemberIds() throws SQLException, ClassNotFoundException {
+        return memberDAO.loadAllIds();
     }
 
     @Override

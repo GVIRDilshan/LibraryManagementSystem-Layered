@@ -14,7 +14,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.MemberBO;
 import lk.ijse.library.dto.MemberDTO;
+import lk.ijse.library.entity.Member;
+import lk.ijse.library.entity.Supplier;
 import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.util.Regex;
 
@@ -90,54 +94,33 @@ public class ManageMembersFromController {
     @FXML
     private Label lbl7;
 
-    MemberDTO member = new MemberDTO();
+    MemberBO memberBO = (MemberBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MEMBER);
 
     @FXML
-    void OnAdd(ActionEvent event) throws SQLException {
-        String memberId = txtMemberId.getText();
-        String memberName = txtMemberName.getText();
-        String memberAddress = txtMemberAddress.getText();
-        int memberAge = Integer.parseInt(txtMemberAge.getText());
-        String memberContact = txtMemberContact.getText();
-        String memberEmail = txtMemberEmail.getText();
-        String memberGender = txtMemberGender.getText();
+    void OnAdd(ActionEvent event) throws SQLException, ClassNotFoundException {
 
-/*        Member memberss = new Member();*/
+        MemberDTO member = new MemberDTO();
 
-        member.setId(memberId);
-        member.setName(memberName);
-        member.setAddress(memberAddress);
-        member.setAge(memberAge);
-        member.setContact(memberContact);
-        member.setEmail(memberEmail);
-        member.setGender(memberGender);
+        member.setId(txtMemberId.getText());
+        member.setName(txtMemberName.getText());
+        member.setAddress(txtMemberAddress.getText());
+        member.setAge(Integer.parseInt(txtMemberAge.getText()));
+        member.setContact(txtMemberContact.getText());
+        member.setEmail(txtMemberEmail.getText());
+        member.setGender(txtMemberGender.getText());
 
-        boolean member1 = MemberModel.memberAdd(member);
+        boolean member1 = memberBO.memberAdd(member);
 
         if (member1) {
             new Alert(Alert.AlertType.CONFIRMATION, "Member Adding Sucses....!").show();
             clear();
         }
-
     }
 
-    @FXML
-    void OnBack(ActionEvent event) {
-        try {
-            Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
-            Stage primaryStage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(view);
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String SearchID = txtMemberIdSearch.getText();
 
-        MemberDTO m1 = MemberModel.searchFrom(SearchID);
+        MemberDTO m1 = memberBO.membersearchFrom(SearchID);
 
         txtMemberId.setText(m1.getId());
         txtMemberName.setText(m1.getName());
@@ -158,7 +141,7 @@ public class ManageMembersFromController {
         String memberEmail = txtMemberEmail.getText();
         String memberGender = txtMemberGender.getText();
 
-//        Member member = new Member();
+        Member member = new Member();
         member.setId(memberId);
         member.setName(memberName);
         member.setAddress(memberAddress);

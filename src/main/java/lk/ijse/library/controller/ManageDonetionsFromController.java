@@ -42,7 +42,7 @@ public class ManageDonetionsFromController implements Initializable {
 
     DonetionBO donetionBO = (DonetionBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.DONETION);
 
-    public void btnOnAdd(ActionEvent actionEvent) throws SQLException {
+    public void btnOnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String donetionID = txtDonetionID.getText();
         String ammount = txtAmmount.getText();
         String review = txtReview.getText();
@@ -56,7 +56,11 @@ public class ManageDonetionsFromController implements Initializable {
         donetion.setReview(review);
         donetion.setExibitionId(exibitionID);
 
-        boolean d1 = DonetionModel.DonetionAdd(donetion);
+        System.out.println(donetion.getDonetionId()+"" +
+                ""+donetion.getDonetionName()+""
+                +donetion.getReview()+""+donetion.getAmmount()+""+donetion.getExibitionId());
+
+        boolean d1 = donetionBO.donetionAdd(donetion);
     }
 
     public void onSelectCmbExibitonID(ActionEvent actionEvent) throws SQLException {
@@ -81,5 +85,12 @@ public class ManageDonetionsFromController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void clear(){
+        txtDonetionID.setText("");
+        txtAmmount.setText("");
+        txtDonetBy.setText("");
+        txtReview.setText("");
+        cmbExibitionID.setPromptText("");
     }
 }

@@ -9,6 +9,13 @@ public class MemberDTO {
     private String Email;
     private String Gender;
 
+    public MemberDTO(String id, String name, String address, String contact, int age, String email, String gender) {
+    }
+
+    public MemberDTO() {
+
+    }
+
     public String getId() {
         return id;
     }

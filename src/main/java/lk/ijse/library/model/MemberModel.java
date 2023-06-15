@@ -2,6 +2,7 @@ package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.MemberDTO;
+import lk.ijse.library.entity.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class MemberModel {
         }
         return null;
     }
-    public static Boolean updateMember(MemberDTO member) throws SQLException {
+    public static Boolean updateMember(Member member) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "update member set name=?,address=?,contact=?,age=?,email=?,Gender=? where memberId=?";
 

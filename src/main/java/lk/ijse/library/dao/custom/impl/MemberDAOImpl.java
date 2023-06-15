@@ -90,7 +90,6 @@ public class MemberDAOImpl implements MemberDAO {
         }
         return null;
     }
-
     @Override
     public ArrayList<String> loadAllIds() throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

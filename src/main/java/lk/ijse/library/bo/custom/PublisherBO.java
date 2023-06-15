@@ -13,6 +13,6 @@ public interface PublisherBO extends SuperBO {
     public boolean publisherDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean publisherUpdate(PublisherDTO publisher) throws SQLException, ClassNotFoundException;
     public String publisherGenarateTurnId() throws SQLException, ClassNotFoundException;
-    public ArrayList<PublisherDTO> loadAllPublisherIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<String> loadAllPublisherIds() throws SQLException, ClassNotFoundException;
     public ArrayList<PublisherDTO> loadAllPublisher() throws SQLException, ClassNotFoundException;
 }

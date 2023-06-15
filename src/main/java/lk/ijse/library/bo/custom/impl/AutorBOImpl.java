@@ -1,11 +1,9 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.AutorBO;
-import lk.ijse.library.dao.custom.AutorDAO;
 import lk.ijse.library.dao.custom.impl.AutorDAOImpl;
 import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.entity.Autor;
-import org.checkerframework.checker.units.qual.A;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ public class AutorBOImpl implements AutorBO {
     @Override
     public AutorDTO autorsearchFrom(String id) throws SQLException, ClassNotFoundException {
         Autor autor = autorDAO.search(id);
-       // System.out.println(autor.getAutorID());
+        System.out.println(autor.getAutorID());
 
         return new AutorDTO(autor.getAutorID() , autor.getAutorName(), autor.getBookName(), autor.getBookID() );
 
