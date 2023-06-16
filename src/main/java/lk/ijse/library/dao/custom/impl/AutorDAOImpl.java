@@ -3,7 +3,6 @@ package lk.ijse.library.dao.custom.impl;
 import lk.ijse.library.dao.SQLUtil;
 import lk.ijse.library.dao.custom.AutorDAO;
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.entity.Autor;
 
 import java.sql.Connection;
@@ -91,25 +90,5 @@ public class AutorDAOImpl implements AutorDAO {
         }
         return allItems;
 
-        /*Connection con = DBConnection.getInstance().getConnection();
-        String sql = "select * from autor";
-
-        PreparedStatement stm = con.prepareStatement(sql);
-
-        ResultSet result = stm.executeQuery();
-
-        ArrayList<Autor> autors = new ArrayList<>();
-
-        while (result.next()) {
-            Autor autor = new Autor();
-            autor.setAutorID(result.getString(1));
-            autor.setAutorName(result.getString(2));
-            autor.setBookName(result.getString(3));
-            autor.setBookID(result.getString(4));
-
-            autors.add(autor);
-        }
-
-        return autors;*/
     }
 }

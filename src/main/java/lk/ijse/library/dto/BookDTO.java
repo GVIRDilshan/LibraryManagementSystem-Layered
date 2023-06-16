@@ -9,6 +9,19 @@ public class BookDTO {
     private String publisher;
     private String supplier;
 
+    public BookDTO(String id, String name, String author, String publisher, String supplier, int qty) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.supplier = supplier;
+        this.qty = qty;
+    }
+
+    public BookDTO() {
+
+    }
+
     public String getId() {
         return id;
     }

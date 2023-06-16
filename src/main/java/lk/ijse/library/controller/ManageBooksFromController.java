@@ -26,6 +26,7 @@ import lk.ijse.library.bo.custom.SupplierBO;
 import lk.ijse.library.bo.custom.impl.SupplierBOImpl;
 import lk.ijse.library.dto.*;
 import lk.ijse.library.entity.Autor;
+import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Publisher;
 import lk.ijse.library.entity.Supplier;
 import lk.ijse.library.model.*;
@@ -100,20 +101,20 @@ public class ManageBooksFromController implements Initializable {
 
     @FXML
     void OnAdd(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String BookID = txtBookID.getText();
-        String BookName = txtBookName.getText();
-        int Qty = Integer.parseInt(txtBookQty.getText());
 
         BookDTO book = new BookDTO();
 
-        book.setId(BookID);
-        book.setName(BookName);
-        book.setQty(Qty);
+        book.setId(txtBookID.getText());
+        book.setName(txtBookName.getText());
+        book.setQty(Integer.parseInt(txtBookQty.getText()));
         book.setAuthor(String.valueOf(cmbAutorId.getValue()));
         book.setSupplier(String.valueOf(cmbSupplierId.getValue()));
         book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
+     //   System.out.println(book.getId()+" "+book.getName()+" "+book.getQty());
+
         boolean b1 = bookBO.bookAdd(book);
+      //  boolean b1 = BookModel.BookAdd(book);
         tableLoad();
     }
 
@@ -197,10 +198,10 @@ public class ManageBooksFromController implements Initializable {
         }
     }
 
-    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String SearchID = txtSearchBookID.getText();
 
-        BookDTO b1 = BookModel.searchFrom(SearchID);
+        Book b1 = bookBO.booksearchFrom(SearchID);
 
         txtBookID.setText(b1.getId());
         txtBookName.setText(b1.getName());

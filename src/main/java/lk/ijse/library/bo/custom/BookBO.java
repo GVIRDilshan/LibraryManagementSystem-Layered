@@ -13,6 +13,6 @@ public interface BookBO extends SuperBO {
     public boolean bookDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean bookUpdate(BookDTO book) throws SQLException, ClassNotFoundException;
     public String bookGenarateTurnId() throws SQLException, ClassNotFoundException;
-    public ArrayList<BookDTO> loadAllBookIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<String> loadAllBookIds() throws SQLException, ClassNotFoundException;
     public ArrayList<BookDTO> loadAllBooks() throws SQLException, ClassNotFoundException;
 }

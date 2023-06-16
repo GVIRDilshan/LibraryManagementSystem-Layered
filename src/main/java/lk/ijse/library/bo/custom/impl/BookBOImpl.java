@@ -2,7 +2,9 @@ package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.BookBO;
 import lk.ijse.library.dao.custom.impl.BookDAOImpl;
+import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.dto.BookDTO;
+import lk.ijse.library.entity.Autor;
 import lk.ijse.library.entity.Book;
 
 import java.sql.SQLException;
@@ -12,13 +14,13 @@ public class BookBOImpl implements BookBO {
     BookDAOImpl bookDAO = new BookDAOImpl();
     @Override
     public boolean bookAdd(BookDTO book) throws SQLException, ClassNotFoundException {
-        bookDAO.add(new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty()));
-        return false;
+        return bookDAO.add(new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty()));
     }
 
     @Override
     public Book booksearchFrom(String id) throws SQLException, ClassNotFoundException {
-        return bookDAO.search(id);
+        Book book = bookDAO.search(id);
+        return new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty());
     }
 
     @Override
@@ -38,21 +40,15 @@ public class BookBOImpl implements BookBO {
     }
 
     @Override
-    public ArrayList<BookDTO> loadAllBookIds() throws SQLException, ClassNotFoundException {
-        ArrayList<BookDTO> allBooks = new ArrayList<>();
-        ArrayList<String> all = new BookBOImpl().bookDAO.loadAllIds();
-        for (String b :  all) {
-            allBooks.add(new BookDTO());
-        }
-        return allBooks;
+    public ArrayList<String> loadAllBookIds() throws SQLException, ClassNotFoundException {
+        return bookDAO.loadAllIds();
     }
 
     @Override
     public ArrayList<BookDTO> loadAllBooks() throws SQLException, ClassNotFoundException {
         ArrayList<BookDTO> allBooks = new ArrayList<>();
-        ArrayList<Book> all = new BookBOImpl().bookDAO.loadAll();
-        for (Book b :  all) {
-            allBooks.add(new BookDTO());
+        for (Book b : bookDAO.loadAll()) {
+            allBooks.add(new BookDTO(b.getId(),b.getName(),b.getAuthor(),b.getPublisher(),b.getSupplier(),b.getQty()));
         }
         return allBooks;
     }
