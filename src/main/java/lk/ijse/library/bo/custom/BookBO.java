@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public interface BookBO extends SuperBO {
     public boolean bookAdd(BookDTO book) throws SQLException, ClassNotFoundException;
-    public Book booksearchFrom(String id) throws SQLException, ClassNotFoundException;
+    public BookDTO booksearchFrom(String id) throws SQLException, ClassNotFoundException;
     public boolean bookDelete(String id) throws SQLException, ClassNotFoundException;
     public boolean bookUpdate(BookDTO book) throws SQLException, ClassNotFoundException;
     public String bookGenarateTurnId() throws SQLException, ClassNotFoundException;

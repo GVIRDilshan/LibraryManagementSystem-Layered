@@ -53,7 +53,6 @@ public class AutorBOImpl implements AutorBO {
         for (Autor a : autorDAO.loadAll()) {
             allAutors.add(new AutorDTO(a.getAutorID(),a.getAutorName(),a.getBookName(),a.getBookID()));
         }
-
         return allAutors;
     }
 }

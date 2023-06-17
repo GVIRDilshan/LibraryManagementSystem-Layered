@@ -83,10 +83,10 @@ public class AutorDAOImpl implements AutorDAO {
     @Override
     public ArrayList<Autor> loadAll() throws SQLException, ClassNotFoundException {
         ArrayList<Autor> allItems = new ArrayList<>();
-        ResultSet rst = SQLUtil.execute("SELECT * FROM Item");
+        ResultSet rst = SQLUtil.execute("SELECT * FROM autor");
         while (rst.next()) {
-            allItems.add(new Autor(rst.getString("AutorID"), rst.getString("AutorName"),
-                    rst.getString("BookName"),rst.getString("BookID")));
+            allItems.add(new Autor(rst.getString("AutorID"), rst.getString("name"),
+                    rst.getString("BookName"),rst.getString("Book_ID")));
         }
         return allItems;
 

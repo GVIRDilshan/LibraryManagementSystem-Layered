@@ -10,5 +10,5 @@ import java.util.ArrayList;
 
 public interface ReturnBO extends SuperBO {
     public  boolean returnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException;
-    public ArrayList<ReturnDTO> loadAllDonetion() throws SQLException, ClassNotFoundException;
+    public ArrayList<ReturnDTO> loadAll() throws SQLException, ClassNotFoundException;
 }

@@ -18,9 +18,9 @@ public class BookBOImpl implements BookBO {
     }
 
     @Override
-    public Book booksearchFrom(String id) throws SQLException, ClassNotFoundException {
+    public BookDTO booksearchFrom(String id) throws SQLException, ClassNotFoundException {
         Book book = bookDAO.search(id);
-        return new Book(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty());
+        return new BookDTO(book.getId(),book.getName(),book.getAuthor(),book.getPublisher(),book.getSupplier(),book.getQty());
     }
 
     @Override

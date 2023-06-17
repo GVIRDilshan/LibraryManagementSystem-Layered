@@ -15,8 +15,8 @@ public class MemberBOImpl implements MemberBO {
     @Override
     public boolean memberAdd(MemberDTO member) throws SQLException, ClassNotFoundException {
         return memberDAO.add(new Member(member.getId(), member.getName(),
-                member.getAddress(),member.getAge(),
-                member.getContact(), member.getEmail(),
+                member.getAddress(),member.getContact(),
+                member.getAge(), member.getEmail(),
                 member.getGender()));
     }
 
@@ -36,8 +36,8 @@ public class MemberBOImpl implements MemberBO {
     @Override
     public boolean memberUpdate(MemberDTO member) throws SQLException, ClassNotFoundException {
         memberDAO.update(new Member(member.getId(), member.getName(),
-                member.getAddress(),member.getAge(),
-                member.getContact(), member.getEmail(),
+                member.getAddress(),member.getContact(),
+                member.getAge(), member.getEmail(),
                 member.getGender()));
         return false;
     }

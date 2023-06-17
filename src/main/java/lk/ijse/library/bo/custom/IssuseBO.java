@@ -11,6 +11,6 @@ import java.util.ArrayList;
 
 public interface IssuseBO extends SuperBO {
     public  boolean issuseFrom(IssuseDTO issuse, String qty, String Bookd) throws SQLException, ClassNotFoundException;
-    public Issuse searchIssuseFrom(String id) throws SQLException, ClassNotFoundException;
+    public IssuseDTO searchIssuseFrom(String id) throws SQLException, ClassNotFoundException;
     public ArrayList<IssuseDTO> loadAllIssuses() throws SQLException, ClassNotFoundException;
 }
