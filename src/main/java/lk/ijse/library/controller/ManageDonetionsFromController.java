@@ -13,8 +13,7 @@ import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.DonetionBO;
 import lk.ijse.library.dto.DonetionDTO;
 import lk.ijse.library.dto.ExibitionDTO;
-import lk.ijse.library.model.DonetionModel;
-import lk.ijse.library.model.ExibitionModel;
+import lk.ijse.library.Model.ExibitionModel;
 
 import java.net.URL;
 import java.sql.SQLException;

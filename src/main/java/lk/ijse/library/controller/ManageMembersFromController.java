@@ -18,8 +18,7 @@ import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.MemberBO;
 import lk.ijse.library.dto.MemberDTO;
 import lk.ijse.library.entity.Member;
-import lk.ijse.library.entity.Supplier;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.Model.MemberModel;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;

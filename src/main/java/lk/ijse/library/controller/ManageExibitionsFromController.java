@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.ExibitionBO;
 import lk.ijse.library.dto.ExibitionDTO;
-import lk.ijse.library.model.ExibitionModel;
 
 import java.net.URL;
 import java.sql.SQLException;

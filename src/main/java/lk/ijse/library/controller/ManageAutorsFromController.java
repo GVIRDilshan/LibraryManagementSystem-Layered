@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.AutorBO;
 import lk.ijse.library.dto.AutorDTO;
-import lk.ijse.library.model.AutorModel;
+import lk.ijse.library.Model.AutorModel;
 import lk.ijse.library.util.Regex;
 
 import java.net.URL;

@@ -14,13 +14,16 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.BookBO;
+import lk.ijse.library.bo.custom.IssuseBO;
+import lk.ijse.library.bo.custom.MemberBO;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.IssuseDTO;
 import lk.ijse.library.dto.MemberDTO;
-import lk.ijse.library.model.BookModel;
-import lk.ijse.library.model.EmailModel;
-import lk.ijse.library.model.IssuseModel;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.Model.BookModel;
+import lk.ijse.library.Model.EmailModel;
+import lk.ijse.library.Model.MemberModel;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -69,6 +72,10 @@ public class ManageIssuseFromController implements Initializable {
     private DatePicker DatePiker;
 
 
+    IssuseBO issuseBO = (IssuseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ISSUSE);
+    MemberBO memberBO = (MemberBO)BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MEMBER);
+    BookBO bookBO = (BookBO)BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
+
     IssuseDTO issuse = new IssuseDTO();
 
     @FXML
@@ -85,7 +92,7 @@ public class ManageIssuseFromController implements Initializable {
     }
 
     @FXML
-    void OnIssuse(ActionEvent event) throws SQLException, MessagingException, ParseException {
+    void OnIssuse(ActionEvent event) throws SQLException, MessagingException, ParseException, ClassNotFoundException {
         String IssuseID = txtIssuseID.getText();
         String Qty = txtQty.getText();
         String dueDate = String.valueOf(DatePiker.getValue());
@@ -104,7 +111,7 @@ public class ManageIssuseFromController implements Initializable {
 
         System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate()+" "+issuse.getIssusId()+" "+issuse.getMemberId());
 
-        boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
+        boolean i1 = issuseBO.issuseFrom(issuse,Qty,BookID);
 
         EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
 
@@ -115,15 +122,15 @@ public class ManageIssuseFromController implements Initializable {
     }
 
     @FXML
-    void OnSelectBookID(ActionEvent event) throws SQLException {
-        BookDTO book = BookModel.searchFrom((String) cmbBookID.getValue());
+    void OnSelectBookID(ActionEvent event) throws SQLException, ClassNotFoundException {
+        BookDTO book = bookBO.booksearchFrom((String) cmbBookID.getValue());
         lblBookName.setText(book.getName());
         lblQty.setText(String.valueOf(book.getQty()));
     }
 
     @FXML
-    void OnSelectMemberID(ActionEvent event) throws SQLException {
-        MemberDTO member = MemberModel.searchFrom((String) cmbMemberID.getValue());
+    void OnSelectMemberID(ActionEvent event) throws SQLException, ClassNotFoundException {
+        MemberDTO member = memberBO.membersearchFrom((String) cmbMemberID.getValue());
         lblMemberName.setText(member.getName());
         lblContact.setText(member.getEmail());
     }
@@ -135,12 +142,12 @@ public class ManageIssuseFromController implements Initializable {
             loadBookIds();
             loadMemersIds();
             //generateNextIssuseId();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-    public void loadBookIds() throws SQLException {
-        ArrayList<String> BookIds = BookModel.loadAllBookIds();
+    public void loadBookIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> BookIds = bookBO.loadAllBookIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
@@ -149,8 +156,8 @@ public class ManageIssuseFromController implements Initializable {
         }
         cmbBookID.setItems(ids);
     }
-    public void loadMemersIds() throws SQLException {
-        ArrayList<String> MemberIds = MemberModel.loadAllMemberIds();
+    public void loadMemersIds() throws SQLException, ClassNotFoundException {
+        ArrayList<String> MemberIds = memberBO.loadAllMemberIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

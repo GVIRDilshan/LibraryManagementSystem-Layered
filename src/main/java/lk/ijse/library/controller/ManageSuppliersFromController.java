@@ -14,9 +14,7 @@ import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.SupplierBO;
 import lk.ijse.library.dto.SupplierDTO;
 import lk.ijse.library.entity.Supplier;
-import lk.ijse.library.model.SupplierModel;
 import javafx.scene.control.Label;
-import lk.ijse.library.util.Alerts;
 import lk.ijse.library.util.Regex;
 
 import java.io.IOException;

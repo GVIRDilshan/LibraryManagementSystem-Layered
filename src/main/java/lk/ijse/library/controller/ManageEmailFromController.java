@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.MemberDTO;
-import lk.ijse.library.model.EmailModel;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.Model.EmailModel;
+import lk.ijse.library.Model.MemberModel;
 
 import javax.mail.MessagingException;
 import java.net.URL;

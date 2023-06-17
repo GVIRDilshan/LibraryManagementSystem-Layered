@@ -6,33 +6,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.library.bo.BOFactory;
-import lk.ijse.library.bo.SuperBO;
 import lk.ijse.library.bo.custom.AutorBO;
 import lk.ijse.library.bo.custom.BookBO;
 import lk.ijse.library.bo.custom.PublisherBO;
 import lk.ijse.library.bo.custom.SupplierBO;
-import lk.ijse.library.bo.custom.impl.SupplierBOImpl;
 import lk.ijse.library.dto.*;
-import lk.ijse.library.entity.Autor;
-import lk.ijse.library.entity.Book;
 import lk.ijse.library.entity.Publisher;
 import lk.ijse.library.entity.Supplier;
-import lk.ijse.library.model.*;
+import lk.ijse.library.Model.*;
 import lombok.SneakyThrows;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -201,7 +192,7 @@ public class ManageBooksFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String SearchID = txtSearchBookID.getText();
 
-        Book b1 = bookBO.booksearchFrom(SearchID);
+        BookDTO b1 = bookBO.booksearchFrom(SearchID);
 
         txtBookID.setText(b1.getId());
         txtBookName.setText(b1.getName());

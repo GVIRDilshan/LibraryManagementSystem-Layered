@@ -10,10 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.IssuseBO;
+import lk.ijse.library.bo.custom.ReturnBO;
 import lk.ijse.library.dto.IssuseDTO;
 import lk.ijse.library.dto.ReturnDTO;
-import lk.ijse.library.model.IssuseModel;
-import lk.ijse.library.model.ReturnModel;
+import lk.ijse.library.Model.IssuseModel;
+import lk.ijse.library.Model.ReturnModel;
 
 
 import java.net.URL;
@@ -73,15 +76,18 @@ public class ManageReturnFromController implements Initializable {
 
     IssuseDTO issuse = new IssuseDTO();
 
+    ReturnBO returnBO = (ReturnBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RETURN);
+    IssuseBO issuseBO =(IssuseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ISSUSE);
+
     public ManageReturnFromController() throws SQLException {
     }
 
 
-    public void GoIssuse(ActionEvent actionEvent) throws SQLException {
+    public void GoIssuse(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String IssueseID = txtIssuseID.getText();
 
-        IssuseDTO issuse  = IssuseModel.IssuseSearch(IssueseID);
+        IssuseDTO issuse  = issuseBO.searchIssuseFrom(IssueseID);
 
         lblIssueID.setText(issuse.getIssusId());
         lblBookID.setText(issuse.getBookId());
@@ -89,10 +95,6 @@ public class ManageReturnFromController implements Initializable {
         lblIssuseDate.setText(issuse.getIssusDate());
         lblQty.setText(issuse.getIssuseQty());
         lblMemberID.setText(issuse.getMemberId());
-
-//        lblMemberID.getText();
-//        Member member = MemberModel.searchFrom(String.valueOf(lblMemberID));
-//        lblMemebrEmail.setText(member.getEmail());
 
     }
 
@@ -115,7 +117,7 @@ public class ManageReturnFromController implements Initializable {
         return1.setBookId(BookId);
         return1.setIssuseDate(IssuseDate);
 
-        boolean b1 = ReturnModel.ReturnSet(return1,BookQty,BookId,IssuseId);
+        boolean b1 = returnBO.returnSet(return1,BookQty,BookId,IssuseId);
         System.out.println(return1.getIssuseId()+" "+return1.getReturnId()+" "+return1.getBookId()+" " +
                 " "+return1.getReturnDate()+" "+return1.getIssuseDate());
 
@@ -133,8 +135,10 @@ public class ManageReturnFromController implements Initializable {
 
         ArrayList<ReturnDTO> returns;
         try {
-            returns = ReturnModel.loadAllReturnas();
+            returns = returnBO.loadAll();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblReturns.setItems(FXCollections.observableArrayList(returns));

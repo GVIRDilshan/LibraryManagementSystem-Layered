@@ -21,8 +21,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.IssuseDTO;
 import lk.ijse.library.dto.ReturnDTO;
-import lk.ijse.library.model.IssuseModel;
-import lk.ijse.library.model.ReturnModel;
+import lk.ijse.library.Model.IssuseModel;
+import lk.ijse.library.Model.ReturnModel;
 import net.sf.jasperreports.engine.*;
 
 import java.io.*;
