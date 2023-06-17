@@ -1,4 +1,4 @@
-package lk.ijse.library.model;
+package lk.ijse.library.Model;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

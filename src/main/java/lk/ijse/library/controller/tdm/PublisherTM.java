@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.dto.PublisherDTO;
-import lk.ijse.library.model.PublisherModel;
+import lk.ijse.library.Model.PublisherModel;
 
 import java.net.URL;
 import java.sql.SQLException;

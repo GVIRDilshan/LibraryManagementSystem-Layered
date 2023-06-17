@@ -12,8 +12,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.MemberBO;
 import lk.ijse.library.dto.MemberDTO;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.Model.MemberModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,6 +52,8 @@ public class MemberTM implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colGender;
+
+    MemberBO memberBO = (MemberBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.MEMBER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

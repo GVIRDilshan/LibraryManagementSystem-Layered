@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.IssuseDTO;
-import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.Model.IssuseModel;
 
 import java.sql.SQLException;
 import java.text.ParseException;

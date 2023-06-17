@@ -28,6 +28,7 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
+
         return SQLUtil.execute("delete from book where BookId =?",id);
     }
 
@@ -40,9 +41,9 @@ public class BookDAOImpl implements BookDAO {
             return new Book(resultSet.getString(1) ,
                     resultSet.getString(2) ,
                     resultSet.getString(3) ,
-                    Integer.parseInt(resultSet.getString(4)),
+                    resultSet.getString(4),
                     resultSet.getString(5) ,
-                    resultSet.getString(6) );
+                    resultSet.getInt(6) );
         }
         return null;
     }

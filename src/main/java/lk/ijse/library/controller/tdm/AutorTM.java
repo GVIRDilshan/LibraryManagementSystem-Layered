@@ -6,8 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.AutorBO;
 import lk.ijse.library.dto.AutorDTO;
-import lk.ijse.library.model.AutorModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -31,6 +32,7 @@ public class AutorTM implements Initializable {
     @FXML
     private TableColumn<?, ?> colBookID;
 
+    AutorBO autorBO = (AutorBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.AUTOR);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tblAutor.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("AutorID"));
@@ -42,8 +44,10 @@ public class AutorTM implements Initializable {
 
         ArrayList<AutorDTO> autors;
         try {
-            autors = AutorModel.loadAllAutors();
+            autors = autorBO.loadAllAutors();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblAutor.setItems(FXCollections.observableArrayList(autors));

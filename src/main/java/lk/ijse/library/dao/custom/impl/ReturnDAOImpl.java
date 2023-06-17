@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ReturnDAOImpl implements ReturnDAO {
     @Override
-    public boolean ReturnSet(ReturnDTO returns, String Qty, String BookId, String IssuseID) throws SQLException {
+    public boolean ReturnSet(Return returns, String Qty, String BookId, String IssuseID) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into returnse values(?,?,?,?,?)";
 

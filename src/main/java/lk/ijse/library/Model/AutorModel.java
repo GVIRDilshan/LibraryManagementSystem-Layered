@@ -1,10 +1,9 @@
-package lk.ijse.library.model;
+package lk.ijse.library.Model;
 
 import lk.ijse.library.dao.custom.impl.AutorDAOImpl;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.entity.Autor;
-import org.checkerframework.checker.units.qual.A;
 
 import java.sql.*;
 import java.util.ArrayList;
