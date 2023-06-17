@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.SupplierBO;
 import lk.ijse.library.dto.SupplierDTO;
 import lk.ijse.library.Model.SupplierModel;
 
@@ -33,6 +35,8 @@ public class SupplierTM implements Initializable {
     @FXML
     private TableColumn<?, ?> colBookID;
 
+    SupplierBO supplierBO = (SupplierBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.SUPPLIER);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tblSuppliers.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("SupplierID"));
@@ -45,8 +49,10 @@ public class SupplierTM implements Initializable {
 
         ArrayList<SupplierDTO> suppliers;
         try {
-            suppliers = SupplierModel.loadAllSuppliers();
+            suppliers = supplierBO.loadAllSupplier();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblSuppliers.setItems(FXCollections.observableArrayList(suppliers));

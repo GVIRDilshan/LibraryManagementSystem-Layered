@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.BookBO;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.Model.BookModel;
 
@@ -38,6 +40,8 @@ public class BookTM implements Initializable {
     @FXML
     private TableColumn<?, ?> colQty;
 
+    BookBO bookBO = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tblBooks.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -49,8 +53,10 @@ public class BookTM implements Initializable {
 
         ArrayList<BookDTO> books;
         try {
-            books = BookModel.loadAllBooks();
+            books = bookBO.loadAllBooks();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblBooks.setItems(FXCollections.observableArrayList(books));

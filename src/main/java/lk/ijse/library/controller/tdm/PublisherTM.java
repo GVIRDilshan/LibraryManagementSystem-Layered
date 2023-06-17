@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.library.bo.BOFactory;
+import lk.ijse.library.bo.custom.PublisherBO;
 import lk.ijse.library.dto.PublisherDTO;
 import lk.ijse.library.Model.PublisherModel;
 
@@ -30,6 +32,8 @@ public class PublisherTM implements Initializable {
     @FXML
     private TableColumn<?, ?> colDate;
 
+    PublisherBO publisherBO = (PublisherBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PUBLISHER);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tblPublisher.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("PublisherID"));
@@ -41,8 +45,10 @@ public class PublisherTM implements Initializable {
 
         ArrayList<PublisherDTO> publishers;
         try {
-            publishers = PublisherModel.loadAllPublisher();
+            publishers = publisherBO.loadAllPublisher();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblPublisher.setItems(FXCollections.observableArrayList(publishers));

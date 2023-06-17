@@ -69,8 +69,10 @@ public class MemberTM implements Initializable {
 
         ArrayList<MemberDTO> members;
         try {
-            members = MemberModel.loadAllMember();
+            members = memberBO.loadAllMember();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         tblMembers.setItems(FXCollections.observableArrayList(members));
