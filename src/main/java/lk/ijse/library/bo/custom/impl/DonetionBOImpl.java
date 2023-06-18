@@ -1,6 +1,7 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.DonetionBO;
+import lk.ijse.library.dao.DAOFactory;
 import lk.ijse.library.dao.custom.impl.DonetionDAOImpl;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.DonetionDTO;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 public class DonetionBOImpl implements DonetionBO {
 
-    DonetionDAOImpl donetionDAO = new DonetionDAOImpl();
+    DonetionDAOImpl donetionDAO = (DonetionDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.DONETION);
 
     @Override
     public boolean donetionAdd(DonetionDTO donetion) throws SQLException, ClassNotFoundException {

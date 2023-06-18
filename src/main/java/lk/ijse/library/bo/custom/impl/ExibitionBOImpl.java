@@ -1,6 +1,7 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.ExibitionBO;
+import lk.ijse.library.dao.DAOFactory;
 import lk.ijse.library.dao.custom.impl.ExibitionDAOImpl;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.ExibitionDTO;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class ExibitionBOImpl implements ExibitionBO {
 
-    ExibitionDAOImpl exibitionDAO = new ExibitionDAOImpl();
+    ExibitionDAOImpl exibitionDAO = (ExibitionDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.EXIBITION);
 
     @Override
     public boolean exibitionAdd(ExibitionDTO exibition) throws SQLException, ClassNotFoundException {

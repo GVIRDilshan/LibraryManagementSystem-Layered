@@ -1,6 +1,7 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.SupplierBO;
+import lk.ijse.library.dao.DAOFactory;
 import lk.ijse.library.dao.custom.impl.SuplierDAOImpl;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.SupplierDTO;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class SupplierBOImpl implements SupplierBO {
 
-    SuplierDAOImpl supplierDAO = new SuplierDAOImpl();
+    SuplierDAOImpl supplierDAO = (SuplierDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.SUPPLIER);
 
     @Override
     public boolean supplierAdd(SupplierDTO supplier) throws SQLException, ClassNotFoundException {

@@ -1,6 +1,7 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.IssuseBO;
+import lk.ijse.library.dao.DAOFactory;
 import lk.ijse.library.dao.custom.impl.IssuseDAOImpl;
 import lk.ijse.library.dto.AutorDTO;
 import lk.ijse.library.dto.IssuseDTO;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class IssuseBOImpl implements IssuseBO {
 
-    IssuseDAOImpl issuseDAO = new IssuseDAOImpl();
+    IssuseDAOImpl issuseDAO = (IssuseDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ISSUSE);
 
     @Override
     public boolean issuseFrom(IssuseDTO issuse, String qty, String bookId) throws SQLException, ClassNotFoundException {

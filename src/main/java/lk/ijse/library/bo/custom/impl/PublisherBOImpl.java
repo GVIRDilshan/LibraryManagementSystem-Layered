@@ -1,6 +1,7 @@
 package lk.ijse.library.bo.custom.impl;
 
 import lk.ijse.library.bo.custom.PublisherBO;
+import lk.ijse.library.dao.DAOFactory;
 import lk.ijse.library.dao.custom.impl.PublisherDAOImpl;
 import lk.ijse.library.dto.BookDTO;
 import lk.ijse.library.dto.PublisherDTO;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class PublisherBOImpl implements PublisherBO {
 
-    PublisherDAOImpl publisherDAO = new PublisherDAOImpl();
+    PublisherDAOImpl publisherDAO = (PublisherDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PUBLISHER);
     @Override
     public boolean publisherAdd(PublisherDTO publisher) throws SQLException, ClassNotFoundException {
         publisherDAO.add(new Publisher(publisher.getPublisherID(), publisher.getPublisherName(),
