@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.bo.BOFactory;
 import lk.ijse.library.bo.custom.BookBO;
 import lk.ijse.library.dto.BookDTO;
-import lk.ijse.library.Model.BookModel;
+//import lk.ijse.library.Model.BookModel;
 
 import java.net.URL;
 import java.sql.SQLException;

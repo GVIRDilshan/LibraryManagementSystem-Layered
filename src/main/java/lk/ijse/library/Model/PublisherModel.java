@@ -14,7 +14,6 @@ public class PublisherModel {
 
         PreparedStatement stm = con.prepareStatement(sql);
 
-
         stm.setObject(1,publisher.getPublisherID());
         stm.setObject(2,publisher.getPublisherName());
         stm.setObject(3,publisher.getBookID());
