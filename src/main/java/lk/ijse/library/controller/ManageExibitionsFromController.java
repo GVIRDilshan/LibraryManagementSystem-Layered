@@ -38,20 +38,16 @@ public class ManageExibitionsFromController implements Initializable {
     }
 
     public void onSave(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String ExibitionID = txtExibitonD.getText();
-        String ExibitionDate = String.valueOf(dateSelect.getValue());
-        String ExibitionTime = txtTime.getText();
-        String ExibitionDesc = txtNotes.getText();
 
         ExibitionDTO exibition = new ExibitionDTO();
-        exibition.setExibitionId(ExibitionID);
-        exibition.setExibitionDate(ExibitionDate);
-        exibition.setExibitionTime(ExibitionTime);
-        exibition.setExibitionDesc(ExibitionDesc);
+        exibition.setExibitionId(txtExibitonD.getText());
+        exibition.setExibitionDate(String.valueOf(dateSelect.getValue()));
+        exibition.setExibitionTime(txtTime.getText());
+        exibition.setExibitionDesc(txtNotes.getText());
 
         boolean e1 = exibitionBO.exibitionAdd(exibition);
 
-        if (e1){
+        if (e1) {
             clear();
         }
     }
@@ -60,24 +56,10 @@ public class ManageExibitionsFromController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    public void clear(){
+
+    public void clear() {
         txtExibitonD.setText("");
         txtNotes.setText("");
         txtTime.setText("");
     }
-
-//    private void settime() {
-//        lblTime.setText(String.valueOf(LocalDate.now()));
-//    }
-    //  @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        AnimationTimer timer = new AnimationTimer() {
-//            @Override
-//            public void handle(long now) {
-//               // txtDate.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-//                lblTime.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-//            }
-//        };
-//        timer.start();
-//    }
 }
