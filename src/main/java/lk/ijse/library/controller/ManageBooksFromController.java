@@ -198,7 +198,6 @@ public class ManageBooksFromController implements Initializable {
         txtBookName.setText(b1.getName());
         txtBookQty.setText(String.valueOf(b1.getQty()));
 
-
     }
 
     public void loadAutorIds() throws SQLException {
