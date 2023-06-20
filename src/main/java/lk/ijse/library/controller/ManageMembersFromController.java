@@ -132,22 +132,15 @@ public class ManageMembersFromController {
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException {
-        String memberId = txtMemberId.getText();
-        String memberName = txtMemberName.getText();
-        String memberAddress = txtMemberAddress.getText();
-        String memberContact = txtMemberContact.getText();
-        int memberAge = Integer.parseInt(txtMemberAge.getText());
-        String memberEmail = txtMemberEmail.getText();
-        String memberGender = txtMemberGender.getText();
 
         Member member = new Member();
-        member.setId(memberId);
-        member.setName(memberName);
-        member.setAddress(memberAddress);
-        member.setContact(memberContact);
-        member.setAge(memberAge);
-        member.setEmail(memberEmail);
-        member.setGender(memberGender);
+        member.setId(txtMemberId.getText());
+        member.setName(txtMemberName.getText());
+        member.setAddress(txtMemberAddress.getText());
+        member.setContact(txtMemberContact.getText());
+        member.setAge(Integer.parseInt(txtMemberAge.getText()));
+        member.setEmail(txtMemberEmail.getText());
+        member.setGender(txtMemberGender.getText());
 
         boolean m2 = MemberModel.updateMember(member);
 
@@ -236,19 +229,4 @@ public class ManageMembersFromController {
             lbl3.setStyle("-fx-background-color: #c0392b;");
         }
     }
-//    private void setTurnId() {
-//        try {
-//            String newTurnId = MemberModel.genarateTurnId();
-//            txtMemberId.setText(newTurnId);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        setTurnId();
-//        txtMemberId.setEditable(false);
-//    }
 }
