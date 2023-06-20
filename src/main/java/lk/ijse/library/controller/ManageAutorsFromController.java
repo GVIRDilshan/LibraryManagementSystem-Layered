@@ -84,7 +84,6 @@ public class ManageAutorsFromController implements Initializable {
         autor1.setBookID(txtBookID.getText());
 
         boolean A1 = autorBO.autorUpdate(autor1);
-        /*System.out.println(autor1);*/
         if(A1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();
             clear();
