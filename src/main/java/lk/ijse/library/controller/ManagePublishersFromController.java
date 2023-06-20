@@ -63,14 +63,11 @@ public class ManagePublishersFromController {
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String PublisherID = txtPublisherID.getText();
-        String PublisherName = txtPublisherName.getText();
-        String BookID = txtBookID.getText();
 
         PublisherDTO publisher = new PublisherDTO();
-        publisher.setPublisherID(PublisherID);
-        publisher.setPublisherName(PublisherName);
-        publisher.setBookID(BookID);
+        publisher.setPublisherID(txtPublisherID.getText());
+        publisher.setPublisherName(txtPublisherName.getText());
+        publisher.setBookID(txtBookID.getText());
 
          boolean b1 = publisherBO.publisherUpdate(publisher);
 
@@ -80,16 +77,13 @@ public class ManagePublishersFromController {
     }
 
     public void OnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String PublisherID = txtPublisherID.getText();
-        String PublisherName = txtPublisherName.getText();
-        String BookID = txtBookID.getText();
 
         PublisherDTO publisher = new PublisherDTO();
 
-        publisher.setPublisherID(PublisherID);
-        publisher.setPublisherName(PublisherName);
+        publisher.setPublisherID(txtPublisherID.getText());
+        publisher.setPublisherName(txtPublisherName.getText());
         publisher.setPublishDate(String.valueOf(LocalDate.now()));
-        publisher.setBookID(BookID);
+        publisher.setBookID(txtBookID.getText());
 
         boolean P1 = publisherBO.publisherAdd(publisher);
 
