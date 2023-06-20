@@ -42,18 +42,13 @@ public class ManageDonetionsFromController implements Initializable {
     DonetionBO donetionBO = (DonetionBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.DONETION);
 
     public void btnOnAdd(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String donetionID = txtDonetionID.getText();
-        String ammount = txtAmmount.getText();
-        String review = txtReview.getText();
-        String donetBy = txtDonetBy.getText();
-        String exibitionID = String.valueOf(cmbExibitionID.getValue());
 
         DonetionDTO donetion = new DonetionDTO();
-        donetion.setDonetionId(donetionID);
-        donetion.setDonetionName(donetBy);
-        donetion.setAmmount(Double.parseDouble(ammount));
-        donetion.setReview(review);
-        donetion.setExibitionId(exibitionID);
+        donetion.setDonetionId(txtDonetionID.getText());
+        donetion.setDonetionName(txtDonetBy.getText());
+        donetion.setAmmount(Double.parseDouble(txtAmmount.getText()));
+        donetion.setReview(txtReview.getText());
+        donetion.setExibitionId((String) cmbExibitionID.getValue());
 
         System.out.println(donetion.getDonetionId()+"" +
                 ""+donetion.getDonetionName()+""
