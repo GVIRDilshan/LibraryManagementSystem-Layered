@@ -109,8 +109,6 @@ public class ManageSuppliersFromController {
         boolean s3 = supplierBO.supplierDelete(SupplierID);
 
         if(s3) {
-//            Alerts alerts = new Alerts();
-//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
             clear();
         }
     }
