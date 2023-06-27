@@ -82,7 +82,6 @@ public class ManageReturnFromController implements Initializable {
     public ManageReturnFromController() throws SQLException {
     }
 
-
     public void GoIssuse(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String IssueseID = txtIssuseID.getText();
@@ -97,8 +96,6 @@ public class ManageReturnFromController implements Initializable {
         lblMemberID.setText(issuse.getMemberId());
 
     }
-
-
 
     public void GoReturn(ActionEvent actionEvent) throws SQLException {
 
@@ -120,10 +117,6 @@ public class ManageReturnFromController implements Initializable {
         boolean b1 = returnBO.returnSet(return1,BookQty,BookId,IssuseId);
         System.out.println(return1.getIssuseId()+" "+return1.getReturnId()+" "+return1.getBookId()+" " +
                 " "+return1.getReturnDate()+" "+return1.getIssuseDate());
-
-      //  EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberID.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"Return Date is ToDay : "+LocalDate.now()+"\"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
-
-
     }
 
     public void ReturnTableView(){
