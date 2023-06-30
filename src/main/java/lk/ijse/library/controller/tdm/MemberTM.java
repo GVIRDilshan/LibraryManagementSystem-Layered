@@ -25,7 +25,6 @@ import java.util.ResourceBundle;
 
 public class MemberTM implements Initializable {
 
-
     @FXML
     private AnchorPane root;
 
@@ -90,4 +89,3 @@ public class MemberTM implements Initializable {
         }
     }
 }
-
