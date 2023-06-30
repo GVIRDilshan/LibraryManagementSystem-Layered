@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookTM implements Initializable {
-
-
     @FXML
     private TableView<BookDTO> tblBooks;
 
