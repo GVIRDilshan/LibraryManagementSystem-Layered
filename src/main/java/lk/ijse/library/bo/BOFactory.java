@@ -15,6 +15,7 @@ public class BOFactory {
         return(boFactory == null ) ? boFactory = new BOFactory() : boFactory;
     }
     
+    
     public enum BOTypes{
         AUTOR,BOOK,DONETION,EXIBITION,ISSUSE,MEMBER,PUBLISHER,RETURN,SUPPLIER,USER
     }
